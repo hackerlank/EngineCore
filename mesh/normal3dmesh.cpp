@@ -4,6 +4,7 @@
 #include <QVector2D>
 #include <qopengl.h>
 #include <QStringList>
+#include <QByteArray>
 
 
 void Normal3DMesh::init(QFile *objMeshFile)
