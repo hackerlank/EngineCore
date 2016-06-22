@@ -22,7 +22,7 @@ void Scene::addRenderable(Renderable* object)
     renderList.append(object);
 }
 
-void Scene::Render(GLuint drawOrder, const QMatrix4x4 *pView, const QMatrix4x4 *pProj, const Light *pLight)
+void Scene::Render(GLuint , const QMatrix4x4 *pView, const QMatrix4x4 *pProj, const Light *pLight)
 {
     foreach (Material* mat, materialList) {
         mat->SetupPerFrame(pLight);

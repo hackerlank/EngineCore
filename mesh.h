@@ -12,7 +12,23 @@ class Mesh
 {    
 protected:
 
-    explicit Mesh(){}
+    Mesh(){
+        vertexBuffer = NULL;
+        indexBuffer = NULL;
+
+                vSize = 0;
+                iSize = 0;
+
+                vTupel = 0;
+                vStride = 0;
+                vOffset = 0;
+
+                iStride = 0;
+                iOffset = 0;
+
+                pVertex = 0;
+                pIndex = 0;
+          }
 
     QOpenGLBuffer* vertexBuffer;
     QOpenGLBuffer* indexBuffer;

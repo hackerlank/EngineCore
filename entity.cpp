@@ -33,7 +33,7 @@ void Entity::Create()
     glVAO->release();
 }
 
-void Entity::Render(GLuint drawOrder, const QMatrix4x4 *pView, const QMatrix4x4 *pProj, const Light * light)
+void Entity::Render(GLuint , const QMatrix4x4 *pView, const QMatrix4x4 *pProj, const Light * light)
 {
 
     this->viewToProjecton = *pProj;

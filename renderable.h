@@ -57,7 +57,10 @@ public:
      * \param fTime
      * \param fElapsedTime
      */
-    virtual void update(double fTime, double fElapsedTime){}
+    virtual void update(double fTime, double fElapsedTime) {
+        double x = fTime + fElapsedTime;
+        x++;
+    }
 
     virtual QMatrix4x4* getWorldMatrix();
     virtual void setWorldMatrix(const QMatrix4x4& nWorld);

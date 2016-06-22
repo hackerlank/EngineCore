@@ -8,8 +8,8 @@ class Normal3DMesh : public Mesh
 {
     void init(QFile* objMeshFile);
 public:
-    Normal3DMesh(QFile* objMeshFile);
-    Normal3DMesh(QString file);
+    explicit Normal3DMesh(QFile* objMeshFile);
+    explicit Normal3DMesh(QString file);
     ~Normal3DMesh();
 };
 

@@ -8,7 +8,7 @@ QT       += opengl
 
 TARGET = EngineCore
 TEMPLATE = lib
-CONFIG += staticlib
+#CONFIG += staticlib
 
 SOURCES += \
     $$PWD/mesh/normal3dmesh.cpp \
@@ -40,3 +40,7 @@ unix {
    target.path = /home/oliver/.lib
    INSTALLS += target
 }
+
+DISTFILES += \
+    LICENSE \
+    README.md

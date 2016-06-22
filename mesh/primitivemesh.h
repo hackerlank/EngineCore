@@ -9,7 +9,7 @@ class PrimitiveMesh : public Mesh
 {
 
 public:
-    PrimitiveMesh(ShapeData *shape);
+    explicit PrimitiveMesh(ShapeData *shape);
     ~PrimitiveMesh();
 
 };

@@ -1,5 +1,4 @@
 #include "material.h"
-#include <QRgb>
 #include "light.h"
 /*!
  * \brief Material::Material Creates a new Material
@@ -21,6 +20,8 @@ Material::Material(QOpenGLContext *context, QString vShaderFile, QString fShader
 
     diffuseColorLocation = -1;
     ambientColorLocation = -1;
+    vertexLocation = -1;
+    worldViewProjMatrixLocation = -1;
 
     this->vertexShader = NULL;
     this->fragmentShader = NULL;
@@ -115,8 +116,8 @@ void Material::SetupPerObject(const QMatrix4x4 *matWorld, const QMatrix4x4 *matW
 {
     programm->bind();
 
-   //programm->setAttributeValue("glmWorld",matWorld->data(),4,4);
-   //programm->setAttributeValue("glmWorldView",matWorldView->data(),4,4);
+   programm->setAttributeValue("glmWorld",matWorld->data(),4,4);
+   programm->setAttributeValue("glmWorldView",matWorldView->data(),4,4);
    programm->setAttributeValue("glmWorldViewProjection",matWorldViewProjection->data(),4,4);
 
    programm->release();
