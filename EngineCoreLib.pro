@@ -19,10 +19,14 @@ SOURCES += \
     $$PWD/renderable.cpp \
     $$PWD/scene.cpp \
     $$PWD/light.cpp \
-    $$PWD/camera.cpp
+    $$PWD/camera.cpp \
+    $$PWD/mesh.cpp \
+    $$PWD/meshnormal.cpp
+
+
 
 HEADERS += \
-    Primitives/vertex.h \
+    $$PWD/Primitives/vertex.h \
     $$PWD/mesh/normal3dmesh.h \
     $$PWD/mesh/primitivemesh.h \
     $$PWD/Primitives/shapedata.h \
@@ -34,7 +38,8 @@ HEADERS += \
     $$PWD/renderable.h \
     $$PWD/scene.h \
     $$PWD/light.h \
-    $$PWD/camera.h
+    $$PWD/camera.h \
+    $$PWD/meshnormal.h
 
 unix {
    target.path = /home/oliver/.lib

@@ -17,7 +17,7 @@ void Normal3DMesh::init(QFile *objMeshFile)
     QVector<GLushort> inIndeciesVert;
     QVector<GLushort> inIndeciesNorm;
     QVector<GLushort> inIndeciesUV;
-    QVector<QVector3D> inVertex;
+    QVector<VertexNormal> inVertex;
     QVector<QVector3D> inNormal;
     QVector<QVector2D> inUV;
 
@@ -52,7 +52,7 @@ void Normal3DMesh::init(QFile *objMeshFile)
 
         } else if (cmd.first() == "v") {
             //add vertex
-            inVertex.append(QVector3D(cmd.at(1).toFloat(),cmd.at(2).toFloat(),cmd.at(3).toFloat()));
+            inVertex.append(VertexNormal(QVector3D(cmd.at(1).toFloat(),cmd.at(2).toFloat(),cmd.at(3).toFloat()),QVector3D()));
         } else if (cmd.first() == "vn") {
             //add vertex normal
             inNormal.append(QVector3D(cmd.at(1).toFloat(),cmd.at(2).toFloat(),cmd.at(3).toFloat()));
@@ -64,16 +64,22 @@ void Normal3DMesh::init(QFile *objMeshFile)
             QStringList fList;
             foreach (QString face, cmd) {
                 fList = face.split("/",QString::SkipEmptyParts);
-                inIndeciesVert.append(fList.at(0).toInt());
-                if(fList.size() > 1) {
-                    inIndeciesNorm.append(fList.at(1).toInt());
-                    if(fList.size() > 2) {
-                        inIndeciesUV.append(fList.at(2).toInt());
-                    }
+
+                inIndeciesVert.append(fList.at(0).toInt()-1);
+
+                if(fList.size() > 2) { // Texture and Normal Mode
+
+                inVertex[fList.at(0).toInt()-1].norm = inNormal.at(fList.at(2).toInt()-1);
+
+                } else if(fList.size() > 1) {//Normal only mode
+
+                inVertex[fList.at(0).toInt()-1].norm = inNormal.at(fList.at(1).toInt()-1);
+
+                }
                 }
             }
 
-        }
+
 
 
 
@@ -84,16 +90,19 @@ void Normal3DMesh::init(QFile *objMeshFile)
 
 
     vTupel =3;
-    vStride=0;
+    vStride= sizeof(VertexNormal);
     vOffset=0;
+    nTupel = 3;
+    nStride = sizeof(VertexNormal);
+    nOffset = sizeof(Vertex);
     iStride = 0;
-    iOffset = sizeof(QVector3D)*vSize;
+    iOffset = 0;
 
-    pVertex = new QVector3D[vSize];
+    pVertexData = new MeshNormal::VertexNormal[vSize];
     pIndex = new GLushort[iSize];
 
-    memcpy(pVertex,inVertex.data(),sizeof(QVector3D) * vSize);
-    memcpy(pIndex,inIndeciesVert.data() , sizeof(GLushort)* iSize);
+    memcpy(pVertexData,inVertex.data(), (sizeof(VertexNormal)) * static_cast<GLuint>(vSize));
+    memcpy(pIndex,inIndeciesVert.data(),(sizeof(GLushort))  * static_cast<GLuint>(iSize));
 }
 
 Normal3DMesh::Normal3DMesh(QFile *objMeshFile)
@@ -111,11 +120,11 @@ Normal3DMesh::Normal3DMesh(QString filename)
 
 Normal3DMesh::~Normal3DMesh()
 {
-    delete [] pVertex;
+    delete [] pVertexData;
     delete [] pIndex;
     delete vertexBuffer;
     delete indexBuffer;
-    pVertex = 0;
+    pVertexData = 0;
     pIndex = 0;
     vertexBuffer = 0;
     indexBuffer =0;

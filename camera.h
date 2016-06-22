@@ -52,7 +52,7 @@ public slots:
      * \param width int new width of the screen device
      * \param height int new height of the screen devce
      */
-    void updateRatio(int width,int height){aspectRatio = (float)width/height;}
+    void updateRatio(int width,int height){aspectRatio = static_cast<float>(width)/static_cast<float>(height);}
 
 };
 

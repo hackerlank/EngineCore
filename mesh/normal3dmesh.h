@@ -1,10 +1,10 @@
 #ifndef NORMAL3DMESH_H
 #define NORMAL3DMESH_H
 
-#include "../mesh.h"
+#include "../meshnormal.h"
 #include <QFile>
 
-class Normal3DMesh : public Mesh
+class Normal3DMesh : public MeshNormal
 {
     void init(QFile* objMeshFile);
 public:

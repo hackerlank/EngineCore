@@ -29,6 +29,7 @@ protected:
 
     QOpenGLShader* vertexShader;
     QOpenGLShader* fragmentShader;
+    QOpenGLShader* geoShader;
 
     QOpenGLShaderProgram* programm;
 
@@ -38,6 +39,7 @@ protected:
     int diffuseColorLocation;
     int ambientColorLocation;
     int vertexLocation;
+    int normalLocation;
     int worldViewProjMatrixLocation;
 
 public:

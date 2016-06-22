@@ -8,27 +8,33 @@
  * \brief The Mesh class Contains all vertex Information
  * abstract Interface
  */
-class Mesh
+class Mesh : public QObject
 {    
+
+    Q_OBJECT
 protected:
+
+    struct Vertex {
+        Vertex(){}
+        explicit Vertex(QVector3D v) : vert(v){}
+
+        QVector3D vert;
+    };
 
     Mesh(){
         vertexBuffer = NULL;
         indexBuffer = NULL;
-
-                vSize = 0;
-                iSize = 0;
-
-                vTupel = 0;
-                vStride = 0;
-                vOffset = 0;
-
-                iStride = 0;
-                iOffset = 0;
-
-                pVertex = 0;
-                pIndex = 0;
-          }
+        vSize = 0;
+        iSize = 0;
+        vTupel = 0;
+        vStride = 0;
+        vOffset = 0;
+        iStride = 0;
+        iOffset = 0;
+        pVertexData = NULL;
+        pIndex = NULL;
+    }
+    virtual ~Mesh(){}
 
     QOpenGLBuffer* vertexBuffer;
     QOpenGLBuffer* indexBuffer;
@@ -43,54 +49,36 @@ protected:
     int iStride;
     int iOffset;
 
-    QVector3D* pVertex;
+    Vertex* pVertexData;
     GLushort * pIndex;
 
 public:
 
-    virtual int vertexSize(){return vSize;}
-    virtual int  indexSize(){return iSize;}
+    virtual inline int vertexSize(){return vSize;}
+    virtual inline int  indexSize(){return iSize;}
 
-    virtual float* vertex(){return (float*) pVertex;}
-    virtual int vertexTupel(){return vTupel;}
-    virtual int vertexStride(){return vStride;}
-    virtual int vertexOffset(){return vOffset;}
+    virtual inline Vertex* vertex(){return (pVertexData);}
+    virtual inline int vertexTupel(){return vTupel;}
+    virtual inline int vertexStride(){return vStride;}
+    virtual inline int vertexOffset(){return vOffset;}
 
-    virtual GLushort* indecies(){return pIndex;}
-    virtual int  indexStride(){return iStride;}
-    virtual int  indexOffset(){return iOffset;}
+    virtual inline GLushort* indecies(){return pIndex;}
+    virtual inline int  indexStride(){return iStride;}
+    virtual inline int  indexOffset(){return iOffset;}
 
-    virtual void bind()    {vertexBuffer->bind(); indexBuffer->bind();}
-    virtual void release() {vertexBuffer->release(); indexBuffer->bind();}
+    virtual inline void bind()    {vertexBuffer->bind(); indexBuffer->bind();}
+    virtual inline void release() {vertexBuffer->release(); indexBuffer->bind();}
 
     /*!
      * \brief Create the OpenGL buffer objects for This Mesh from the mesh data and sends this data to the GPU
      */
-    virtual void Create()
-    {
-        int bufferSizeVertex = sizeof(QVector3D) * vSize;
-        int bufferSizeIndex = sizeof(GLushort) * iSize;
+    virtual void Create();
 
-        this->vertexBuffer->create();
-        this->indexBuffer->create();
-
-        this->vertexBuffer->bind();
-        this->vertexBuffer->setUsagePattern(QOpenGLBuffer::StaticDraw);
-        this->vertexBuffer->allocate(bufferSizeVertex);
-        this->vertexBuffer->write(0,pVertex,bufferSizeVertex);
-        this->vertexBuffer->release();
-
-        this->indexBuffer->bind();
-        this->indexBuffer->setUsagePattern(QOpenGLBuffer::StaticDraw);
-        this->indexBuffer->allocate(bufferSizeIndex);
-        this->indexBuffer->write(0,pIndex,bufferSizeIndex);
-        this->indexBuffer->release();
-    }
 
     /*!
      * \brief Destroy Removes the OpenGL buffers for this Mesh from the GPU
      */
-    virtual void Destroy()
+    virtual inline void Destroy()
     {
         this->vertexBuffer->destroy();
         this->indexBuffer->destroy();

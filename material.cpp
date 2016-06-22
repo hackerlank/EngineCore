@@ -1,4 +1,5 @@
 #include "material.h"
+#include "meshnormal.h"
 #include "light.h"
 /*!
  * \brief Material::Material Creates a new Material
@@ -21,11 +22,13 @@ Material::Material(QOpenGLContext *context, QString vShaderFile, QString fShader
     diffuseColorLocation = -1;
     ambientColorLocation = -1;
     vertexLocation = -1;
+    normalLocation = -1;
     worldViewProjMatrixLocation = -1;
 
-    this->vertexShader = NULL;
-    this->fragmentShader = NULL;
-    this->programm = NULL;
+    vertexShader = NULL;
+    fragmentShader = NULL;
+    geoShader = NULL;
+    programm = NULL;
 
     //...
 }
@@ -36,10 +39,12 @@ void Material::Create()
 {
     vertexShader = new  QOpenGLShader(QOpenGLShader::Vertex,this);
     fragmentShader = new QOpenGLShader(QOpenGLShader::Fragment,this);
+    geoShader = new QOpenGLShader(QOpenGLShader::Geometry,this);
     programm = new QOpenGLShaderProgram(this);
 
     vertexShader->compileSourceFile(vertexShaderFileName);
     fragmentShader->compileSourceFile(fragmentShaderFileName);
+
 
     if(!programm->addShader(vertexShader))
         qErrnoWarning("VertexShaderError");
@@ -47,11 +52,18 @@ void Material::Create()
     if(!programm->addShader(fragmentShader))
         qErrnoWarning("FragmentShaderError");
 
+   // if(geoShader->compileSourceFile(":/geo.geo"))
+   // if(!programm->addShader(geoShader))
+    //    qErrnoWarning("GeoShaderError");
+
+
+
     programm->link();
     programm->bind();
 
 
     vertexLocation = programm->attributeLocation("glVertex");
+    normalLocation = this->programm->attributeLocation("glNormal");
     diffuseColorLocation = programm->attributeLocation("glDiffuseColor");
     ambientColorLocation = programm->attributeLocation("glAmbientColor");
 }
@@ -85,6 +97,11 @@ void Material::CreateVertexLayout(Mesh* format)
 
     programm->setAttributeBuffer(vertexLocation,GL_FLOAT,format->vertexOffset(),format->vertexTupel(),format->vertexStride());
 
+    MeshNormal * nformat = qobject_cast<MeshNormal * >(format);
+    if(nformat){
+    programm->enableAttributeArray(normalLocation);
+    programm->setAttributeBuffer(normalLocation,GL_FLOAT,nformat->normalOffset(),nformat->normalTupel(),nformat->normalStride());
+    }
 
     programm->release();
     format->release();
