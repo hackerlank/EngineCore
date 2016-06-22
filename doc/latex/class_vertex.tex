@@ -1,0 +1,185 @@
+\hypertarget{class_vertex}{}\section{Vertex Class Reference}
+\label{class_vertex}\index{Vertex@{Vertex}}
+
+
+{\ttfamily \#include $<$vertex.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R \hyperlink{class_vertex_a647e2b0c42fdfd04fadebae37ed94e3e}{Vertex} ()
+\item 
+Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R \hyperlink{class_vertex_abd9662d85a8594ea74d2b349286498da}{Vertex} (const Q\+Vector3\+D \&\hyperlink{class_vertex_a5cc133b4fcf419eab539b95b4e713d42}{position})
+\item 
+Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R \hyperlink{class_vertex_a6ed0ae9e821c3cdcf4ae7700872c913e}{Vertex} (const Q\+Vector3\+D \&\hyperlink{class_vertex_a5cc133b4fcf419eab539b95b4e713d42}{position}, const Q\+Vector3\+D \&\hyperlink{class_vertex_aa482d7c9ff336901c987723b9e0ec4b5}{color})
+\item 
+Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R const Q\+Vector3\+D \& \hyperlink{class_vertex_a5cc133b4fcf419eab539b95b4e713d42}{position} () const 
+\item 
+Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R const Q\+Vector3\+D \& \hyperlink{class_vertex_aa482d7c9ff336901c987723b9e0ec4b5}{color} () const 
+\item 
+void \hyperlink{class_vertex_a8da242585395d719b1bd1163895bd80d}{set\+Position} (const Q\+Vector3\+D \&\hyperlink{class_vertex_a5cc133b4fcf419eab539b95b4e713d42}{position})
+\item 
+void \hyperlink{class_vertex_ae8a764bdc15d2fa9a2ccc766281651b1}{set\+Color} (const Q\+Vector3\+D \&\hyperlink{class_vertex_aa482d7c9ff336901c987723b9e0ec4b5}{color})
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R int \hyperlink{class_vertex_af1fbdec4ee8d94820f060576c804cc08}{position\+Offset} ()
+\item 
+static Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R int \hyperlink{class_vertex_acdbc97e99155c9c5b9cd3a6391544f9c}{color\+Offset} ()
+\item 
+static Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R int \hyperlink{class_vertex_a966a81701eacd6bad774bdf3b39bb895}{stride} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{class_vertex_a8ddae32c242e3c94f94a7565966a86ca}{Position\+Tuple\+Size} = 3
+\item 
+static const int \hyperlink{class_vertex_a5a1d4d101c9d2272c659ad72fa8a83ff}{Color\+Tuple\+Size} = 3
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 5 of file vertex.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_vertex_a647e2b0c42fdfd04fadebae37ed94e3e}{}\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection[{Vertex()}]{\setlength{\rightskip}{0pt plus 5cm}Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R Vertex\+::\+Vertex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vertex_a647e2b0c42fdfd04fadebae37ed94e3e}
+
+
+Definition at line 39 of file vertex.\+h.
+
+\hypertarget{class_vertex_abd9662d85a8594ea74d2b349286498da}{}\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection[{Vertex(const Q\+Vector3\+D \&position)}]{\setlength{\rightskip}{0pt plus 5cm}Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R Vertex\+::\+Vertex (
+\begin{DoxyParamCaption}
+\item[{const Q\+Vector3\+D \&}]{position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\label{class_vertex_abd9662d85a8594ea74d2b349286498da}
+
+
+Definition at line 40 of file vertex.\+h.
+
+\hypertarget{class_vertex_a6ed0ae9e821c3cdcf4ae7700872c913e}{}\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection[{Vertex(const Q\+Vector3\+D \&position, const Q\+Vector3\+D \&color)}]{\setlength{\rightskip}{0pt plus 5cm}Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R Vertex\+::\+Vertex (
+\begin{DoxyParamCaption}
+\item[{const Q\+Vector3\+D \&}]{position, }
+\item[{const Q\+Vector3\+D \&}]{color}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vertex_a6ed0ae9e821c3cdcf4ae7700872c913e}
+
+
+Definition at line 41 of file vertex.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_vertex_aa482d7c9ff336901c987723b9e0ec4b5}{}\index{Vertex@{Vertex}!color@{color}}
+\index{color@{color}!Vertex@{Vertex}}
+\subsubsection[{color() const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R const Q\+Vector3\+D \& Vertex\+::color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vertex_aa482d7c9ff336901c987723b9e0ec4b5}
+
+
+Definition at line 45 of file vertex.\+h.
+
+\hypertarget{class_vertex_acdbc97e99155c9c5b9cd3a6391544f9c}{}\index{Vertex@{Vertex}!color\+Offset@{color\+Offset}}
+\index{color\+Offset@{color\+Offset}!Vertex@{Vertex}}
+\subsubsection[{color\+Offset()}]{\setlength{\rightskip}{0pt plus 5cm}Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R int Vertex\+::color\+Offset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_vertex_acdbc97e99155c9c5b9cd3a6391544f9c}
+
+
+Definition at line 51 of file vertex.\+h.
+
+\hypertarget{class_vertex_a5cc133b4fcf419eab539b95b4e713d42}{}\index{Vertex@{Vertex}!position@{position}}
+\index{position@{position}!Vertex@{Vertex}}
+\subsubsection[{position() const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R const Q\+Vector3\+D \& Vertex\+::position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vertex_a5cc133b4fcf419eab539b95b4e713d42}
+
+
+Definition at line 44 of file vertex.\+h.
+
+\hypertarget{class_vertex_af1fbdec4ee8d94820f060576c804cc08}{}\index{Vertex@{Vertex}!position\+Offset@{position\+Offset}}
+\index{position\+Offset@{position\+Offset}!Vertex@{Vertex}}
+\subsubsection[{position\+Offset()}]{\setlength{\rightskip}{0pt plus 5cm}Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R int Vertex\+::position\+Offset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_vertex_af1fbdec4ee8d94820f060576c804cc08}
+
+
+Definition at line 50 of file vertex.\+h.
+
+\hypertarget{class_vertex_ae8a764bdc15d2fa9a2ccc766281651b1}{}\index{Vertex@{Vertex}!set\+Color@{set\+Color}}
+\index{set\+Color@{set\+Color}!Vertex@{Vertex}}
+\subsubsection[{set\+Color(const Q\+Vector3\+D \&color)}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+::set\+Color (
+\begin{DoxyParamCaption}
+\item[{const Q\+Vector3\+D \&}]{color}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vertex_ae8a764bdc15d2fa9a2ccc766281651b1}
+
+
+Definition at line 47 of file vertex.\+h.
+
+\hypertarget{class_vertex_a8da242585395d719b1bd1163895bd80d}{}\index{Vertex@{Vertex}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Vertex@{Vertex}}
+\subsubsection[{set\+Position(const Q\+Vector3\+D \&position)}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+::set\+Position (
+\begin{DoxyParamCaption}
+\item[{const Q\+Vector3\+D \&}]{position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vertex_a8da242585395d719b1bd1163895bd80d}
+
+
+Definition at line 46 of file vertex.\+h.
+
+\hypertarget{class_vertex_a966a81701eacd6bad774bdf3b39bb895}{}\index{Vertex@{Vertex}!stride@{stride}}
+\index{stride@{stride}!Vertex@{Vertex}}
+\subsubsection[{stride()}]{\setlength{\rightskip}{0pt plus 5cm}Q\+\_\+\+D\+E\+C\+L\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R int Vertex\+::stride (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_vertex_a966a81701eacd6bad774bdf3b39bb895}
+
+
+Definition at line 52 of file vertex.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_vertex_a5a1d4d101c9d2272c659ad72fa8a83ff}{}\index{Vertex@{Vertex}!Color\+Tuple\+Size@{Color\+Tuple\+Size}}
+\index{Color\+Tuple\+Size@{Color\+Tuple\+Size}!Vertex@{Vertex}}
+\subsubsection[{Color\+Tuple\+Size}]{\setlength{\rightskip}{0pt plus 5cm}const int Vertex\+::\+Color\+Tuple\+Size = 3\hspace{0.3cm}{\ttfamily [static]}}\label{class_vertex_a5a1d4d101c9d2272c659ad72fa8a83ff}
+
+
+Definition at line 21 of file vertex.\+h.
+
+\hypertarget{class_vertex_a8ddae32c242e3c94f94a7565966a86ca}{}\index{Vertex@{Vertex}!Position\+Tuple\+Size@{Position\+Tuple\+Size}}
+\index{Position\+Tuple\+Size@{Position\+Tuple\+Size}!Vertex@{Vertex}}
+\subsubsection[{Position\+Tuple\+Size}]{\setlength{\rightskip}{0pt plus 5cm}const int Vertex\+::\+Position\+Tuple\+Size = 3\hspace{0.3cm}{\ttfamily [static]}}\label{class_vertex_a8ddae32c242e3c94f94a7565966a86ca}
+
+
+Definition at line 20 of file vertex.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Primitives/\hyperlink{vertex_8h}{vertex.\+h}\end{DoxyCompactItemize}

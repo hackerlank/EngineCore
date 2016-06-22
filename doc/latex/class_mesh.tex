@@ -1,0 +1,336 @@
+\hypertarget{class_mesh}{}\section{Mesh Class Reference}
+\label{class_mesh}\index{Mesh@{Mesh}}
+
+
+The \hyperlink{class_mesh}{Mesh} class Contains all vertex Information abstract Interface.  
+
+
+
+
+{\ttfamily \#include $<$mesh.\+h$>$}
+
+Inheritance diagram for Mesh\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mesh}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \hyperlink{class_mesh_a525d8b7c9ff840a0a92c507f0ff2febf}{vertex\+Size} ()
+\item 
+virtual int \hyperlink{class_mesh_a93afbbcbeaa686dc6a4ae342e842f530}{index\+Size} ()
+\item 
+virtual float $\ast$ \hyperlink{class_mesh_a7086a32bd045e773e636da12e4f9c1b4}{vertex} ()
+\item 
+virtual int \hyperlink{class_mesh_a112080d5664bb21790632b7bfcafb4f4}{vertex\+Tupel} ()
+\item 
+virtual int \hyperlink{class_mesh_abf79b0e9fff121f85f6b2163e8c053f9}{vertex\+Stride} ()
+\item 
+virtual int \hyperlink{class_mesh_a999026dae1d89c13f5e27a886271d028}{vertex\+Offset} ()
+\item 
+virtual G\+Lushort $\ast$ \hyperlink{class_mesh_a85b1d83752f168ff75d8327e5dd89df4}{indecies} ()
+\item 
+virtual int \hyperlink{class_mesh_a1ad488fd8f2d6395f645a127273f0a90}{index\+Stride} ()
+\item 
+virtual int \hyperlink{class_mesh_abdf32aa39510ff70e9a1d23daebe0c43}{index\+Offset} ()
+\item 
+virtual void \hyperlink{class_mesh_a8fe3f7dd50c087fe472c0b75ba423974}{bind} ()
+\item 
+virtual void \hyperlink{class_mesh_a747251d7e9e44fcd7bfd58a89bba7e61}{release} ()
+\item 
+virtual void \hyperlink{class_mesh_a4e113d785d96bb8b36695469f4c5d862}{Create} ()
+\begin{DoxyCompactList}\small\item\em Create the Open\+G\+L buffer objects for This \hyperlink{class_mesh}{Mesh} from the mesh data and sends this data to the G\+P\+U. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_mesh_a969df8ef15def20cfc48c265d194b3c2}{Destroy} ()
+\begin{DoxyCompactList}\small\item\em Destroy Removes the Open\+G\+L buffers for this \hyperlink{class_mesh}{Mesh} from the G\+P\+U. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_mesh_a2af137f1571af89172b9c102302c416b}{Mesh} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Open\+G\+L\+Buffer $\ast$ \hyperlink{class_mesh_ae53507ed0f2756e37a55e57a169cbec0}{vertex\+Buffer}
+\item 
+Q\+Open\+G\+L\+Buffer $\ast$ \hyperlink{class_mesh_a4b4a752380875f7ade2301f656a45a51}{index\+Buffer}
+\item 
+int \hyperlink{class_mesh_a840028792aecdad5f9b649222329d521}{v\+Size}
+\item 
+int \hyperlink{class_mesh_ac6283b99dbb698e2efd83357278b06b7}{i\+Size}
+\item 
+int \hyperlink{class_mesh_a07d24d28a6cf55b5575e0525dd9ecceb}{v\+Tupel}
+\item 
+int \hyperlink{class_mesh_a5e054aa2a4f8e2af8f1f5342ef847f26}{v\+Stride}
+\item 
+int \hyperlink{class_mesh_a251ab9a090efb842f2b5e2674d31e112}{v\+Offset}
+\item 
+int \hyperlink{class_mesh_afe2f0742c0ef6088eaf38b87a8896392}{i\+Stride}
+\item 
+int \hyperlink{class_mesh_a8837e5a3b75f17b5ebab3b67928489ce}{i\+Offset}
+\item 
+Q\+Vector3\+D $\ast$ \hyperlink{class_mesh_a32d007d7d539832b7feb35e11ff4586c}{p\+Vertex}
+\item 
+G\+Lushort $\ast$ \hyperlink{class_mesh_a96ad2c21d6a2da165217d5ff53ec72b4}{p\+Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_mesh}{Mesh} class Contains all vertex Information abstract Interface. 
+
+Definition at line 11 of file mesh.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_mesh_a2af137f1571af89172b9c102302c416b}{}\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\subsubsection[{Mesh()}]{\setlength{\rightskip}{0pt plus 5cm}Mesh\+::\+Mesh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [protected]}}\label{class_mesh_a2af137f1571af89172b9c102302c416b}
+
+
+Definition at line 15 of file mesh.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_mesh_a8fe3f7dd50c087fe472c0b75ba423974}{}\index{Mesh@{Mesh}!bind@{bind}}
+\index{bind@{bind}!Mesh@{Mesh}}
+\subsubsection[{bind()}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Mesh\+::bind (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_mesh_a8fe3f7dd50c087fe472c0b75ba423974}
+
+
+Definition at line 47 of file mesh.\+h.
+
+\hypertarget{class_mesh_a4e113d785d96bb8b36695469f4c5d862}{}\index{Mesh@{Mesh}!Create@{Create}}
+\index{Create@{Create}!Mesh@{Mesh}}
+\subsubsection[{Create()}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Mesh\+::\+Create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_mesh_a4e113d785d96bb8b36695469f4c5d862}
+
+
+Create the Open\+G\+L buffer objects for This \hyperlink{class_mesh}{Mesh} from the mesh data and sends this data to the G\+P\+U. 
+
+
+
+Definition at line 53 of file mesh.\+h.
+
+\hypertarget{class_mesh_a969df8ef15def20cfc48c265d194b3c2}{}\index{Mesh@{Mesh}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!Mesh@{Mesh}}
+\subsubsection[{Destroy()}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Mesh\+::\+Destroy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_mesh_a969df8ef15def20cfc48c265d194b3c2}
+
+
+Destroy Removes the Open\+G\+L buffers for this \hyperlink{class_mesh}{Mesh} from the G\+P\+U. 
+
+
+
+Definition at line 77 of file mesh.\+h.
+
+\hypertarget{class_mesh_a85b1d83752f168ff75d8327e5dd89df4}{}\index{Mesh@{Mesh}!indecies@{indecies}}
+\index{indecies@{indecies}!Mesh@{Mesh}}
+\subsubsection[{indecies()}]{\setlength{\rightskip}{0pt plus 5cm}virtual G\+Lushort$\ast$ Mesh\+::indecies (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_mesh_a85b1d83752f168ff75d8327e5dd89df4}
+
+
+Definition at line 43 of file mesh.\+h.
+
+\hypertarget{class_mesh_abdf32aa39510ff70e9a1d23daebe0c43}{}\index{Mesh@{Mesh}!index\+Offset@{index\+Offset}}
+\index{index\+Offset@{index\+Offset}!Mesh@{Mesh}}
+\subsubsection[{index\+Offset()}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Mesh\+::index\+Offset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_mesh_abdf32aa39510ff70e9a1d23daebe0c43}
+
+
+Definition at line 45 of file mesh.\+h.
+
+\hypertarget{class_mesh_a93afbbcbeaa686dc6a4ae342e842f530}{}\index{Mesh@{Mesh}!index\+Size@{index\+Size}}
+\index{index\+Size@{index\+Size}!Mesh@{Mesh}}
+\subsubsection[{index\+Size()}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Mesh\+::index\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_mesh_a93afbbcbeaa686dc6a4ae342e842f530}
+
+
+Definition at line 36 of file mesh.\+h.
+
+\hypertarget{class_mesh_a1ad488fd8f2d6395f645a127273f0a90}{}\index{Mesh@{Mesh}!index\+Stride@{index\+Stride}}
+\index{index\+Stride@{index\+Stride}!Mesh@{Mesh}}
+\subsubsection[{index\+Stride()}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Mesh\+::index\+Stride (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_mesh_a1ad488fd8f2d6395f645a127273f0a90}
+
+
+Definition at line 44 of file mesh.\+h.
+
+\hypertarget{class_mesh_a747251d7e9e44fcd7bfd58a89bba7e61}{}\index{Mesh@{Mesh}!release@{release}}
+\index{release@{release}!Mesh@{Mesh}}
+\subsubsection[{release()}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Mesh\+::release (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_mesh_a747251d7e9e44fcd7bfd58a89bba7e61}
+
+
+Definition at line 48 of file mesh.\+h.
+
+\hypertarget{class_mesh_a7086a32bd045e773e636da12e4f9c1b4}{}\index{Mesh@{Mesh}!vertex@{vertex}}
+\index{vertex@{vertex}!Mesh@{Mesh}}
+\subsubsection[{vertex()}]{\setlength{\rightskip}{0pt plus 5cm}virtual float$\ast$ Mesh\+::vertex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_mesh_a7086a32bd045e773e636da12e4f9c1b4}
+
+
+Definition at line 38 of file mesh.\+h.
+
+\hypertarget{class_mesh_a999026dae1d89c13f5e27a886271d028}{}\index{Mesh@{Mesh}!vertex\+Offset@{vertex\+Offset}}
+\index{vertex\+Offset@{vertex\+Offset}!Mesh@{Mesh}}
+\subsubsection[{vertex\+Offset()}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Mesh\+::vertex\+Offset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_mesh_a999026dae1d89c13f5e27a886271d028}
+
+
+Definition at line 41 of file mesh.\+h.
+
+\hypertarget{class_mesh_a525d8b7c9ff840a0a92c507f0ff2febf}{}\index{Mesh@{Mesh}!vertex\+Size@{vertex\+Size}}
+\index{vertex\+Size@{vertex\+Size}!Mesh@{Mesh}}
+\subsubsection[{vertex\+Size()}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Mesh\+::vertex\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_mesh_a525d8b7c9ff840a0a92c507f0ff2febf}
+
+
+Definition at line 35 of file mesh.\+h.
+
+\hypertarget{class_mesh_abf79b0e9fff121f85f6b2163e8c053f9}{}\index{Mesh@{Mesh}!vertex\+Stride@{vertex\+Stride}}
+\index{vertex\+Stride@{vertex\+Stride}!Mesh@{Mesh}}
+\subsubsection[{vertex\+Stride()}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Mesh\+::vertex\+Stride (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_mesh_abf79b0e9fff121f85f6b2163e8c053f9}
+
+
+Definition at line 40 of file mesh.\+h.
+
+\hypertarget{class_mesh_a112080d5664bb21790632b7bfcafb4f4}{}\index{Mesh@{Mesh}!vertex\+Tupel@{vertex\+Tupel}}
+\index{vertex\+Tupel@{vertex\+Tupel}!Mesh@{Mesh}}
+\subsubsection[{vertex\+Tupel()}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Mesh\+::vertex\+Tupel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_mesh_a112080d5664bb21790632b7bfcafb4f4}
+
+
+Definition at line 39 of file mesh.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_mesh_a4b4a752380875f7ade2301f656a45a51}{}\index{Mesh@{Mesh}!index\+Buffer@{index\+Buffer}}
+\index{index\+Buffer@{index\+Buffer}!Mesh@{Mesh}}
+\subsubsection[{index\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Open\+G\+L\+Buffer$\ast$ Mesh\+::index\+Buffer\hspace{0.3cm}{\ttfamily [protected]}}\label{class_mesh_a4b4a752380875f7ade2301f656a45a51}
+
+
+Definition at line 18 of file mesh.\+h.
+
+\hypertarget{class_mesh_a8837e5a3b75f17b5ebab3b67928489ce}{}\index{Mesh@{Mesh}!i\+Offset@{i\+Offset}}
+\index{i\+Offset@{i\+Offset}!Mesh@{Mesh}}
+\subsubsection[{i\+Offset}]{\setlength{\rightskip}{0pt plus 5cm}int Mesh\+::i\+Offset\hspace{0.3cm}{\ttfamily [protected]}}\label{class_mesh_a8837e5a3b75f17b5ebab3b67928489ce}
+
+
+Definition at line 28 of file mesh.\+h.
+
+\hypertarget{class_mesh_ac6283b99dbb698e2efd83357278b06b7}{}\index{Mesh@{Mesh}!i\+Size@{i\+Size}}
+\index{i\+Size@{i\+Size}!Mesh@{Mesh}}
+\subsubsection[{i\+Size}]{\setlength{\rightskip}{0pt plus 5cm}int Mesh\+::i\+Size\hspace{0.3cm}{\ttfamily [protected]}}\label{class_mesh_ac6283b99dbb698e2efd83357278b06b7}
+
+
+Definition at line 21 of file mesh.\+h.
+
+\hypertarget{class_mesh_afe2f0742c0ef6088eaf38b87a8896392}{}\index{Mesh@{Mesh}!i\+Stride@{i\+Stride}}
+\index{i\+Stride@{i\+Stride}!Mesh@{Mesh}}
+\subsubsection[{i\+Stride}]{\setlength{\rightskip}{0pt plus 5cm}int Mesh\+::i\+Stride\hspace{0.3cm}{\ttfamily [protected]}}\label{class_mesh_afe2f0742c0ef6088eaf38b87a8896392}
+
+
+Definition at line 27 of file mesh.\+h.
+
+\hypertarget{class_mesh_a96ad2c21d6a2da165217d5ff53ec72b4}{}\index{Mesh@{Mesh}!p\+Index@{p\+Index}}
+\index{p\+Index@{p\+Index}!Mesh@{Mesh}}
+\subsubsection[{p\+Index}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lushort$\ast$ Mesh\+::p\+Index\hspace{0.3cm}{\ttfamily [protected]}}\label{class_mesh_a96ad2c21d6a2da165217d5ff53ec72b4}
+
+
+Definition at line 31 of file mesh.\+h.
+
+\hypertarget{class_mesh_a32d007d7d539832b7feb35e11ff4586c}{}\index{Mesh@{Mesh}!p\+Vertex@{p\+Vertex}}
+\index{p\+Vertex@{p\+Vertex}!Mesh@{Mesh}}
+\subsubsection[{p\+Vertex}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Vector3\+D$\ast$ Mesh\+::p\+Vertex\hspace{0.3cm}{\ttfamily [protected]}}\label{class_mesh_a32d007d7d539832b7feb35e11ff4586c}
+
+
+Definition at line 30 of file mesh.\+h.
+
+\hypertarget{class_mesh_ae53507ed0f2756e37a55e57a169cbec0}{}\index{Mesh@{Mesh}!vertex\+Buffer@{vertex\+Buffer}}
+\index{vertex\+Buffer@{vertex\+Buffer}!Mesh@{Mesh}}
+\subsubsection[{vertex\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Open\+G\+L\+Buffer$\ast$ Mesh\+::vertex\+Buffer\hspace{0.3cm}{\ttfamily [protected]}}\label{class_mesh_ae53507ed0f2756e37a55e57a169cbec0}
+
+
+Definition at line 17 of file mesh.\+h.
+
+\hypertarget{class_mesh_a251ab9a090efb842f2b5e2674d31e112}{}\index{Mesh@{Mesh}!v\+Offset@{v\+Offset}}
+\index{v\+Offset@{v\+Offset}!Mesh@{Mesh}}
+\subsubsection[{v\+Offset}]{\setlength{\rightskip}{0pt plus 5cm}int Mesh\+::v\+Offset\hspace{0.3cm}{\ttfamily [protected]}}\label{class_mesh_a251ab9a090efb842f2b5e2674d31e112}
+
+
+Definition at line 25 of file mesh.\+h.
+
+\hypertarget{class_mesh_a840028792aecdad5f9b649222329d521}{}\index{Mesh@{Mesh}!v\+Size@{v\+Size}}
+\index{v\+Size@{v\+Size}!Mesh@{Mesh}}
+\subsubsection[{v\+Size}]{\setlength{\rightskip}{0pt plus 5cm}int Mesh\+::v\+Size\hspace{0.3cm}{\ttfamily [protected]}}\label{class_mesh_a840028792aecdad5f9b649222329d521}
+
+
+Definition at line 20 of file mesh.\+h.
+
+\hypertarget{class_mesh_a5e054aa2a4f8e2af8f1f5342ef847f26}{}\index{Mesh@{Mesh}!v\+Stride@{v\+Stride}}
+\index{v\+Stride@{v\+Stride}!Mesh@{Mesh}}
+\subsubsection[{v\+Stride}]{\setlength{\rightskip}{0pt plus 5cm}int Mesh\+::v\+Stride\hspace{0.3cm}{\ttfamily [protected]}}\label{class_mesh_a5e054aa2a4f8e2af8f1f5342ef847f26}
+
+
+Definition at line 24 of file mesh.\+h.
+
+\hypertarget{class_mesh_a07d24d28a6cf55b5575e0525dd9ecceb}{}\index{Mesh@{Mesh}!v\+Tupel@{v\+Tupel}}
+\index{v\+Tupel@{v\+Tupel}!Mesh@{Mesh}}
+\subsubsection[{v\+Tupel}]{\setlength{\rightskip}{0pt plus 5cm}int Mesh\+::v\+Tupel\hspace{0.3cm}{\ttfamily [protected]}}\label{class_mesh_a07d24d28a6cf55b5575e0525dd9ecceb}
+
+
+Definition at line 23 of file mesh.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mesh_8h}{mesh.\+h}\end{DoxyCompactItemize}

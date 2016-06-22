@@ -1,0 +1,226 @@
+\hypertarget{class_entity}{}\section{Entity Class Reference}
+\label{class_entity}\index{Entity@{Entity}}
+
+
+The \hyperlink{class_entity}{Entity} class.  
+
+
+
+
+{\ttfamily \#include $<$entity.\+h$>$}
+
+Inheritance diagram for Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_entity}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_entity_acf4f8570960b2173a894a99ec9967215}{Entity} (\hyperlink{class_mesh}{Mesh} $\ast$p\+Mesh, \hyperlink{class_material}{Material} $\ast$p\+Material, Q\+Open\+G\+L\+Context $\ast$context, const Q\+Matrix4x4 $\ast$p\+World, const Q\+String str\+Name=\char`\"{}Entity\char`\"{}, Q\+Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_entity}{Entity} creates a new \hyperlink{class_entity}{Entity} need a \hyperlink{class_mesh}{Mesh}, \hyperlink{class_material}{Material}, Context and a Position in the World. \end{DoxyCompactList}\item 
+\hyperlink{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{$\sim$\+Entity} ()
+\item 
+virtual void \hyperlink{class_entity_a647d154620c6464168f3b088f0ac170e}{Create} ()
+\begin{DoxyCompactList}\small\item\em Create and initilize Open\+G\+L Values Creates \hyperlink{class_mesh}{Mesh} and \hyperlink{class_material}{Material} and initilize them. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_entity_aa75151fc607686b42d27f8c3ba73143d}{Destroy} ()
+\begin{DoxyCompactList}\small\item\em Destroy Clear the G\+P\+U Memory and Delets the Open\+G\+L Values. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_entity_a0f3f11bbb868ab96e5bbb0f835eb9966}{Render} (G\+Luint draw\+Order, const Q\+Matrix4x4 $\ast$p\+View, const Q\+Matrix4x4 $\ast$p\+Proj, const \hyperlink{class_light}{Light} $\ast$light)
+\begin{DoxyCompactList}\small\item\em Render Renders the \hyperlink{class_entity}{Entity} to the given open\+G\+L context. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_material}{Material} $\ast$ \hyperlink{class_entity_adbbe41659ac87bbed15c53e6101292e8}{material}
+\item 
+\hyperlink{class_mesh}{Mesh} $\ast$ \hyperlink{class_entity_ab346a9ce19733368f64f9109fb290ff1}{mesh}
+\item 
+Q\+Open\+G\+L\+Vertex\+Array\+Object $\ast$ \hyperlink{class_entity_aaddc09c82caf2a17d745af5283771eac}{gl\+V\+A\+O}
+\item 
+Q\+Matrix4x4 \hyperlink{class_entity_ad9ec1327cacd74787dd951ff4389ca15}{world\+To\+View}
+\item 
+Q\+Matrix4x4 \hyperlink{class_entity_adddbfb9b19b765cb9674ad95fe9f22ce}{view\+To\+Projecton}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_entity}{Entity} class. 
+
+Implements a \hyperlink{class_renderable}{Renderable} Object a \hyperlink{class_renderable}{Renderable} \hyperlink{class_mesh}{Mesh} with one \hyperlink{class_material}{Material}
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_mesh}{Mesh} 
+
+\hyperlink{class_material}{Material} 
+\end{DoxySeeAlso}
+
+
+Definition at line 19 of file entity.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_entity_acf4f8570960b2173a894a99ec9967215}{}\index{Entity@{Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!Entity@{Entity}}
+\subsubsection[{Entity(\+Mesh $\ast$p\+Mesh, Material $\ast$p\+Material, Q\+Open\+G\+L\+Context $\ast$context, const Q\+Matrix4x4 $\ast$p\+World, const Q\+String str\+Name=""Entity"", Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Entity\+::\+Entity (
+\begin{DoxyParamCaption}
+\item[{{\bf Mesh} $\ast$}]{p\+Mesh, }
+\item[{{\bf Material} $\ast$}]{p\+Material, }
+\item[{Q\+Open\+G\+L\+Context $\ast$}]{context, }
+\item[{const Q\+Matrix4x4 $\ast$}]{p\+World, }
+\item[{const Q\+String}]{str\+Name = {\ttfamily \char`\"{}Entity\char`\"{}}, }
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_entity_acf4f8570960b2173a894a99ec9967215}
+
+
+\hyperlink{class_entity}{Entity} creates a new \hyperlink{class_entity}{Entity} need a \hyperlink{class_mesh}{Mesh}, \hyperlink{class_material}{Material}, Context and a Position in the World. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Mesh} & the \hyperlink{class_mesh}{Mesh} of the \hyperlink{class_entity}{Entity} \\
+\hline
+{\em p\+Material} & the \hyperlink{class_material}{Material} for the \hyperlink{class_mesh}{Mesh} \\
+\hline
+{\em context} & the context witch shoud be drawed to \\
+\hline
+{\em p\+World} & the model\+To\+World Matrix gives the position of the Entiry in the World \\
+\hline
+{\em str\+Name} & O\+P\+T. gives the \hyperlink{class_entity}{Entity} a name \\
+\hline
+{\em parent} & O\+P\+T Q\+Object Parent \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file entity.\+cpp.
+
+\hypertarget{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{}\index{Entity@{Entity}!````~Entity@{$\sim$\+Entity}}
+\index{````~Entity@{$\sim$\+Entity}!Entity@{Entity}}
+\subsubsection[{$\sim$\+Entity()}]{\setlength{\rightskip}{0pt plus 5cm}Entity\+::$\sim$\+Entity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}
+
+
+Definition at line 70 of file entity.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_entity_a647d154620c6464168f3b088f0ac170e}{}\index{Entity@{Entity}!Create@{Create}}
+\index{Create@{Create}!Entity@{Entity}}
+\subsubsection[{Create()}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\+::\+Create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_entity_a647d154620c6464168f3b088f0ac170e}
+
+
+Create and initilize Open\+G\+L Values Creates \hyperlink{class_mesh}{Mesh} and \hyperlink{class_material}{Material} and initilize them. 
+
+
+
+Implements \hyperlink{class_renderable_ab204246b39a34b14a3f258a065cc3019}{Renderable}.
+
+
+
+Definition at line 20 of file entity.\+cpp.
+
+\hypertarget{class_entity_aa75151fc607686b42d27f8c3ba73143d}{}\index{Entity@{Entity}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!Entity@{Entity}}
+\subsubsection[{Destroy()}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\+::\+Destroy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_entity_aa75151fc607686b42d27f8c3ba73143d}
+
+
+Destroy Clear the G\+P\+U Memory and Delets the Open\+G\+L Values. 
+
+
+
+Implements \hyperlink{class_renderable_aaf8e0b324e35f8a1b61a9667a0d91d51}{Renderable}.
+
+
+
+Definition at line 64 of file entity.\+cpp.
+
+\hypertarget{class_entity_a0f3f11bbb868ab96e5bbb0f835eb9966}{}\index{Entity@{Entity}!Render@{Render}}
+\index{Render@{Render}!Entity@{Entity}}
+\subsubsection[{Render(\+G\+Luint draw\+Order, const Q\+Matrix4x4 $\ast$p\+View, const Q\+Matrix4x4 $\ast$p\+Proj, const Light $\ast$light)}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{G\+Luint}]{draw\+Order, }
+\item[{const Q\+Matrix4x4 $\ast$}]{p\+View, }
+\item[{const Q\+Matrix4x4 $\ast$}]{p\+Proj, }
+\item[{const {\bf Light} $\ast$}]{light}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_entity_a0f3f11bbb868ab96e5bbb0f835eb9966}
+
+
+Render Renders the \hyperlink{class_entity}{Entity} to the given open\+G\+L context. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em draw\+Order} & order \\
+\hline
+{\em p\+View} & World\+To\+View Matrix for the \hyperlink{class_entity}{Entity} \\
+\hline
+{\em p\+Proj} & Projection for the \hyperlink{class_entity}{Entity} \\
+\hline
+{\em light} & A light for rendering \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_renderable_aee9a55d459edefe6c8b8532ab5d7102c}{Renderable}.
+
+
+
+Definition at line 36 of file entity.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_entity_aaddc09c82caf2a17d745af5283771eac}{}\index{Entity@{Entity}!gl\+V\+A\+O@{gl\+V\+A\+O}}
+\index{gl\+V\+A\+O@{gl\+V\+A\+O}!Entity@{Entity}}
+\subsubsection[{gl\+V\+A\+O}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Open\+G\+L\+Vertex\+Array\+Object$\ast$ Entity\+::gl\+V\+A\+O\hspace{0.3cm}{\ttfamily [protected]}}\label{class_entity_aaddc09c82caf2a17d745af5283771eac}
+
+
+Definition at line 25 of file entity.\+h.
+
+\hypertarget{class_entity_adbbe41659ac87bbed15c53e6101292e8}{}\index{Entity@{Entity}!material@{material}}
+\index{material@{material}!Entity@{Entity}}
+\subsubsection[{material}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Material}$\ast$ Entity\+::material\hspace{0.3cm}{\ttfamily [protected]}}\label{class_entity_adbbe41659ac87bbed15c53e6101292e8}
+
+
+Definition at line 23 of file entity.\+h.
+
+\hypertarget{class_entity_ab346a9ce19733368f64f9109fb290ff1}{}\index{Entity@{Entity}!mesh@{mesh}}
+\index{mesh@{mesh}!Entity@{Entity}}
+\subsubsection[{mesh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mesh}$\ast$ Entity\+::mesh\hspace{0.3cm}{\ttfamily [protected]}}\label{class_entity_ab346a9ce19733368f64f9109fb290ff1}
+
+
+Definition at line 24 of file entity.\+h.
+
+\hypertarget{class_entity_adddbfb9b19b765cb9674ad95fe9f22ce}{}\index{Entity@{Entity}!view\+To\+Projecton@{view\+To\+Projecton}}
+\index{view\+To\+Projecton@{view\+To\+Projecton}!Entity@{Entity}}
+\subsubsection[{view\+To\+Projecton}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Matrix4x4 Entity\+::view\+To\+Projecton\hspace{0.3cm}{\ttfamily [protected]}}\label{class_entity_adddbfb9b19b765cb9674ad95fe9f22ce}
+
+
+Definition at line 29 of file entity.\+h.
+
+\hypertarget{class_entity_ad9ec1327cacd74787dd951ff4389ca15}{}\index{Entity@{Entity}!world\+To\+View@{world\+To\+View}}
+\index{world\+To\+View@{world\+To\+View}!Entity@{Entity}}
+\subsubsection[{world\+To\+View}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Matrix4x4 Entity\+::world\+To\+View\hspace{0.3cm}{\ttfamily [protected]}}\label{class_entity_ad9ec1327cacd74787dd951ff4389ca15}
+
+
+Definition at line 28 of file entity.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{entity_8h}{entity.\+h}\item 
+\hyperlink{entity_8cpp}{entity.\+cpp}\end{DoxyCompactItemize}

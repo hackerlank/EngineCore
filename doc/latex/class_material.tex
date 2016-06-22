@@ -1,0 +1,376 @@
+\hypertarget{class_material}{}\section{Material Class Reference}
+\label{class_material}\index{Material@{Material}}
+
+
+The \hyperlink{class_material}{Material} class.  
+
+
+
+
+{\ttfamily \#include $<$material.\+h$>$}
+
+Inheritance diagram for Material\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_material}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_material_a70259ad64e743ee286bddd3bb0389a28}{Material} (Q\+Open\+G\+L\+Context $\ast$context, Q\+String v\+Shader\+File, Q\+String f\+Shader\+File, Q\+Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_material_a70259ad64e743ee286bddd3bb0389a28}{Material\+::\+Material} Creates a new \hyperlink{class_material}{Material} there are no shaders compiled or liked or bound. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_material_af39de221a1c5a6ebe920d732e3c84b40}{Create} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_material_af39de221a1c5a6ebe920d732e3c84b40}{Material\+::\+Create} reads the shader files, compiles them and adds them to a programm. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_material_aeee87ae4ec3829e9e32119f557c59753}{Destroy} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_material_aeee87ae4ec3829e9e32119f557c59753}{Material\+::\+Destroy} deletes the shaders and programm. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_material_a8eff0925974e755d3a9a216a8063c3de}{Create\+Vertex\+Layout} (\hyperlink{class_mesh}{Mesh} $\ast$format)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_material_a8eff0925974e755d3a9a216a8063c3de}{Material\+::\+Create\+Vertex\+Layout} binds \hyperlink{class_material}{Material} to a Vertex\+Buffer and sets up the data structure. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_material_a031a68217b55fb3c46a01757c58eb836}{Setup} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_material_a031a68217b55fb3c46a01757c58eb836}{Material\+::\+Setup} Setup shader values for the hole material livetime. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_material_a3b2ab993eed57211d14f16f71efe6b75}{Setup\+Per\+Object} (const Q\+Matrix4x4 $\ast$mat\+World, const Q\+Matrix4x4 $\ast$mat\+World\+View, const Q\+Matrix4x4 $\ast$mat\+World\+View\+Projection)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_material_a3b2ab993eed57211d14f16f71efe6b75}{Material\+::\+Setup\+Per\+Object} Setup values that needed to be setup for one object for one time. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_material_a56025231f7fe57d5cf68fd21d2d425a1}{Setup\+Per\+Frame} (const \hyperlink{class_light}{Light} $\ast$p\+Light)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_material_a56025231f7fe57d5cf68fd21d2d425a1}{Material\+::\+Setup\+Per\+Frame} Setup \hyperlink{class_material}{Material} Values (e.\+g. the \hyperlink{class_light}{Light} source) that need to be updates only one a Frame not for every Object. \end{DoxyCompactList}\item 
+Q\+Open\+G\+L\+Shader $\ast$ \hyperlink{class_material_ad67cd89b791d35c26bdd8b9e4f486790}{get\+Vertex\+Shader} ()
+\item 
+Q\+Open\+G\+L\+Shader $\ast$ \hyperlink{class_material_a21f6b7cacf4e6fd64e3976951a296fb7}{get\+Fragment\+Shader} ()
+\item 
+Q\+Open\+G\+L\+Shader\+Program $\ast$ \hyperlink{class_material_a9ee8bb9a9370af4b0ab7790f5802c38a}{get\+Shader\+Programm} ()
+\item 
+void \hyperlink{class_material_a0abb21c533c69ea57fabc48d593db9af}{set\+Diffuse\+Color} (const Q\+Vector4\+D \&value)
+\item 
+void \hyperlink{class_material_a0c1cf0dcdd31f2a5ee6ccdef7a049216}{set\+Ambient\+Color} (const Q\+Vector4\+D \&value)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Open\+G\+L\+Context $\ast$ \hyperlink{class_material_a83da87bdd6d755b6f8ed40929001d355}{context\+Device}
+\item 
+Q\+String \hyperlink{class_material_af8361fc71a1f55c5a49100bee94bd94a}{vertex\+Shader\+File\+Name}
+\item 
+Q\+String \hyperlink{class_material_a8adf8679e41e341b339f3460c3ba45ee}{fragment\+Shader\+File\+Name}
+\item 
+Q\+Open\+G\+L\+Shader $\ast$ \hyperlink{class_material_af7fc01b5cbebefdc983797f60cd4772c}{vertex\+Shader}
+\item 
+Q\+Open\+G\+L\+Shader $\ast$ \hyperlink{class_material_a9a2cb05e65584fa9d4f0f4f0af74d55e}{fragment\+Shader}
+\item 
+Q\+Open\+G\+L\+Shader\+Program $\ast$ \hyperlink{class_material_aa5f04d76a6b53bfb6eba238db8328490}{programm}
+\item 
+Q\+Vector4\+D \hyperlink{class_material_a38b1cde46c908ae719ebaf9de1efb5ff}{diffuse\+Color}
+\item 
+Q\+Vector4\+D \hyperlink{class_material_aabbefbcb0d05f0ae4521eb68183ff702}{ambient\+Color}
+\item 
+int \hyperlink{class_material_ad4963cc03e54c2e539a98b60070d2beb}{diffuse\+Color\+Location}
+\item 
+int \hyperlink{class_material_a938adfa6b527c7462df99493968f14aa}{ambient\+Color\+Location}
+\item 
+int \hyperlink{class_material_ac1241a29b62d04848cdc190f1de85849}{vertex\+Location}
+\item 
+int \hyperlink{class_material_a12a1db7e857ec3bcbacbcd646f5cd16f}{world\+View\+Proj\+Matrix\+Location}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_material}{Material} class. 
+
+This Class manages a material for a Object. A \hyperlink{class_material}{Material} contains vertex and fragment shader and manages the connection to them 
+
+Definition at line 19 of file material.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_material_a70259ad64e743ee286bddd3bb0389a28}{}\index{Material@{Material}!Material@{Material}}
+\index{Material@{Material}!Material@{Material}}
+\subsubsection[{Material(\+Q\+Open\+G\+L\+Context $\ast$context, Q\+String v\+Shader\+File, Q\+String f\+Shader\+File, Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Material\+::\+Material (
+\begin{DoxyParamCaption}
+\item[{Q\+Open\+G\+L\+Context $\ast$}]{context, }
+\item[{Q\+String}]{v\+Shader\+File, }
+\item[{Q\+String}]{f\+Shader\+File, }
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_material_a70259ad64e743ee286bddd3bb0389a28}
+
+
+\hyperlink{class_material_a70259ad64e743ee286bddd3bb0389a28}{Material\+::\+Material} Creates a new \hyperlink{class_material}{Material} there are no shaders compiled or liked or bound. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & open\+Gl context for the \hyperlink{class_material}{Material} \\
+\hline
+{\em v\+Shader\+File} & Vertex-\/\+Shader file name and location \\
+\hline
+{\em f\+Shader\+File} & Fragment-\/\+Shader file name and location \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file material.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_material_af39de221a1c5a6ebe920d732e3c84b40}{}\index{Material@{Material}!Create@{Create}}
+\index{Create@{Create}!Material@{Material}}
+\subsubsection[{Create()}]{\setlength{\rightskip}{0pt plus 5cm}void Material\+::\+Create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_material_af39de221a1c5a6ebe920d732e3c84b40}
+
+
+\hyperlink{class_material_af39de221a1c5a6ebe920d732e3c84b40}{Material\+::\+Create} reads the shader files, compiles them and adds them to a programm. 
+
+
+
+Definition at line 34 of file material.\+cpp.
+
+\hypertarget{class_material_a8eff0925974e755d3a9a216a8063c3de}{}\index{Material@{Material}!Create\+Vertex\+Layout@{Create\+Vertex\+Layout}}
+\index{Create\+Vertex\+Layout@{Create\+Vertex\+Layout}!Material@{Material}}
+\subsubsection[{Create\+Vertex\+Layout(\+Mesh $\ast$format)}]{\setlength{\rightskip}{0pt plus 5cm}void Material\+::\+Create\+Vertex\+Layout (
+\begin{DoxyParamCaption}
+\item[{{\bf Mesh} $\ast$}]{format}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_material_a8eff0925974e755d3a9a216a8063c3de}
+
+
+\hyperlink{class_material_a8eff0925974e755d3a9a216a8063c3de}{Material\+::\+Create\+Vertex\+Layout} binds \hyperlink{class_material}{Material} to a Vertex\+Buffer and sets up the data structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex\+Buffer} & Q\+Open\+G\+L\+Buffer with the Vertex\+Buffer \\
+\hline
+{\em format} & Vertex\+Format says what format the Buffer has with color etc \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file material.\+cpp.
+
+\hypertarget{class_material_aeee87ae4ec3829e9e32119f557c59753}{}\index{Material@{Material}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!Material@{Material}}
+\subsubsection[{Destroy()}]{\setlength{\rightskip}{0pt plus 5cm}void Material\+::\+Destroy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_material_aeee87ae4ec3829e9e32119f557c59753}
+
+
+\hyperlink{class_material_aeee87ae4ec3829e9e32119f557c59753}{Material\+::\+Destroy} deletes the shaders and programm. 
+
+
+
+Definition at line 61 of file material.\+cpp.
+
+\hypertarget{class_material_a21f6b7cacf4e6fd64e3976951a296fb7}{}\index{Material@{Material}!get\+Fragment\+Shader@{get\+Fragment\+Shader}}
+\index{get\+Fragment\+Shader@{get\+Fragment\+Shader}!Material@{Material}}
+\subsubsection[{get\+Fragment\+Shader()}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Open\+G\+L\+Shader$\ast$ Material\+::get\+Fragment\+Shader (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_material_a21f6b7cacf4e6fd64e3976951a296fb7}
+
+
+Definition at line 58 of file material.\+h.
+
+\hypertarget{class_material_a9ee8bb9a9370af4b0ab7790f5802c38a}{}\index{Material@{Material}!get\+Shader\+Programm@{get\+Shader\+Programm}}
+\index{get\+Shader\+Programm@{get\+Shader\+Programm}!Material@{Material}}
+\subsubsection[{get\+Shader\+Programm()}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Open\+G\+L\+Shader\+Program$\ast$ Material\+::get\+Shader\+Programm (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_material_a9ee8bb9a9370af4b0ab7790f5802c38a}
+
+
+Definition at line 59 of file material.\+h.
+
+\hypertarget{class_material_ad67cd89b791d35c26bdd8b9e4f486790}{}\index{Material@{Material}!get\+Vertex\+Shader@{get\+Vertex\+Shader}}
+\index{get\+Vertex\+Shader@{get\+Vertex\+Shader}!Material@{Material}}
+\subsubsection[{get\+Vertex\+Shader()}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Open\+G\+L\+Shader$\ast$ Material\+::get\+Vertex\+Shader (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_material_ad67cd89b791d35c26bdd8b9e4f486790}
+
+
+Definition at line 57 of file material.\+h.
+
+\hypertarget{class_material_a0c1cf0dcdd31f2a5ee6ccdef7a049216}{}\index{Material@{Material}!set\+Ambient\+Color@{set\+Ambient\+Color}}
+\index{set\+Ambient\+Color@{set\+Ambient\+Color}!Material@{Material}}
+\subsubsection[{set\+Ambient\+Color(const Q\+Vector4\+D \&value)}]{\setlength{\rightskip}{0pt plus 5cm}void Material\+::set\+Ambient\+Color (
+\begin{DoxyParamCaption}
+\item[{const Q\+Vector4\+D \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_material_a0c1cf0dcdd31f2a5ee6ccdef7a049216}
+
+
+Definition at line 65 of file material.\+h.
+
+\hypertarget{class_material_a0abb21c533c69ea57fabc48d593db9af}{}\index{Material@{Material}!set\+Diffuse\+Color@{set\+Diffuse\+Color}}
+\index{set\+Diffuse\+Color@{set\+Diffuse\+Color}!Material@{Material}}
+\subsubsection[{set\+Diffuse\+Color(const Q\+Vector4\+D \&value)}]{\setlength{\rightskip}{0pt plus 5cm}void Material\+::set\+Diffuse\+Color (
+\begin{DoxyParamCaption}
+\item[{const Q\+Vector4\+D \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_material_a0abb21c533c69ea57fabc48d593db9af}
+
+
+Definition at line 62 of file material.\+h.
+
+\hypertarget{class_material_a031a68217b55fb3c46a01757c58eb836}{}\index{Material@{Material}!Setup@{Setup}}
+\index{Setup@{Setup}!Material@{Material}}
+\subsubsection[{Setup()}]{\setlength{\rightskip}{0pt plus 5cm}void Material\+::\+Setup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_material_a031a68217b55fb3c46a01757c58eb836}
+
+
+\hyperlink{class_material_a031a68217b55fb3c46a01757c58eb836}{Material\+::\+Setup} Setup shader values for the hole material livetime. 
+
+
+
+Definition at line 96 of file material.\+cpp.
+
+\hypertarget{class_material_a56025231f7fe57d5cf68fd21d2d425a1}{}\index{Material@{Material}!Setup\+Per\+Frame@{Setup\+Per\+Frame}}
+\index{Setup\+Per\+Frame@{Setup\+Per\+Frame}!Material@{Material}}
+\subsubsection[{Setup\+Per\+Frame(const Light $\ast$p\+Light)}]{\setlength{\rightskip}{0pt plus 5cm}void Material\+::\+Setup\+Per\+Frame (
+\begin{DoxyParamCaption}
+\item[{const {\bf Light} $\ast$}]{p\+Light}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_material_a56025231f7fe57d5cf68fd21d2d425a1}
+
+
+\hyperlink{class_material_a56025231f7fe57d5cf68fd21d2d425a1}{Material\+::\+Setup\+Per\+Frame} Setup \hyperlink{class_material}{Material} Values (e.\+g. the \hyperlink{class_light}{Light} source) that need to be updates only one a Frame not for every Object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Light} & light values; \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 128 of file material.\+cpp.
+
+\hypertarget{class_material_a3b2ab993eed57211d14f16f71efe6b75}{}\index{Material@{Material}!Setup\+Per\+Object@{Setup\+Per\+Object}}
+\index{Setup\+Per\+Object@{Setup\+Per\+Object}!Material@{Material}}
+\subsubsection[{Setup\+Per\+Object(const Q\+Matrix4x4 $\ast$mat\+World, const Q\+Matrix4x4 $\ast$mat\+World\+View, const Q\+Matrix4x4 $\ast$mat\+World\+View\+Projection)}]{\setlength{\rightskip}{0pt plus 5cm}void Material\+::\+Setup\+Per\+Object (
+\begin{DoxyParamCaption}
+\item[{const Q\+Matrix4x4 $\ast$}]{mat\+World, }
+\item[{const Q\+Matrix4x4 $\ast$}]{mat\+World\+View, }
+\item[{const Q\+Matrix4x4 $\ast$}]{mat\+World\+View\+Projection}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_material_a3b2ab993eed57211d14f16f71efe6b75}
+
+
+\hyperlink{class_material_a3b2ab993eed57211d14f16f71efe6b75}{Material\+::\+Setup\+Per\+Object} Setup values that needed to be setup for one object for one time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat\+World} & Q\+Matrix4x4\}$\ast$ The World matrix for that object \\
+\hline
+{\em mat\+World\+View} & Q\+Matrix4x4\}$\ast$ The World\+View matrix for that object \\
+\hline
+{\em mat\+World\+View\+Projection} & Q\+Matrix4x4\}$\ast$ The World\+View\+Projection matrix for that object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 114 of file material.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_material_aabbefbcb0d05f0ae4521eb68183ff702}{}\index{Material@{Material}!ambient\+Color@{ambient\+Color}}
+\index{ambient\+Color@{ambient\+Color}!Material@{Material}}
+\subsubsection[{ambient\+Color}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Vector4\+D Material\+::ambient\+Color\hspace{0.3cm}{\ttfamily [protected]}}\label{class_material_aabbefbcb0d05f0ae4521eb68183ff702}
+
+
+Definition at line 36 of file material.\+h.
+
+\hypertarget{class_material_a938adfa6b527c7462df99493968f14aa}{}\index{Material@{Material}!ambient\+Color\+Location@{ambient\+Color\+Location}}
+\index{ambient\+Color\+Location@{ambient\+Color\+Location}!Material@{Material}}
+\subsubsection[{ambient\+Color\+Location}]{\setlength{\rightskip}{0pt plus 5cm}int Material\+::ambient\+Color\+Location\hspace{0.3cm}{\ttfamily [protected]}}\label{class_material_a938adfa6b527c7462df99493968f14aa}
+
+
+Definition at line 39 of file material.\+h.
+
+\hypertarget{class_material_a83da87bdd6d755b6f8ed40929001d355}{}\index{Material@{Material}!context\+Device@{context\+Device}}
+\index{context\+Device@{context\+Device}!Material@{Material}}
+\subsubsection[{context\+Device}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Open\+G\+L\+Context$\ast$ Material\+::context\+Device\hspace{0.3cm}{\ttfamily [protected]}}\label{class_material_a83da87bdd6d755b6f8ed40929001d355}
+
+
+Definition at line 25 of file material.\+h.
+
+\hypertarget{class_material_a38b1cde46c908ae719ebaf9de1efb5ff}{}\index{Material@{Material}!diffuse\+Color@{diffuse\+Color}}
+\index{diffuse\+Color@{diffuse\+Color}!Material@{Material}}
+\subsubsection[{diffuse\+Color}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Vector4\+D Material\+::diffuse\+Color\hspace{0.3cm}{\ttfamily [protected]}}\label{class_material_a38b1cde46c908ae719ebaf9de1efb5ff}
+
+
+Definition at line 35 of file material.\+h.
+
+\hypertarget{class_material_ad4963cc03e54c2e539a98b60070d2beb}{}\index{Material@{Material}!diffuse\+Color\+Location@{diffuse\+Color\+Location}}
+\index{diffuse\+Color\+Location@{diffuse\+Color\+Location}!Material@{Material}}
+\subsubsection[{diffuse\+Color\+Location}]{\setlength{\rightskip}{0pt plus 5cm}int Material\+::diffuse\+Color\+Location\hspace{0.3cm}{\ttfamily [protected]}}\label{class_material_ad4963cc03e54c2e539a98b60070d2beb}
+
+
+Definition at line 38 of file material.\+h.
+
+\hypertarget{class_material_a9a2cb05e65584fa9d4f0f4f0af74d55e}{}\index{Material@{Material}!fragment\+Shader@{fragment\+Shader}}
+\index{fragment\+Shader@{fragment\+Shader}!Material@{Material}}
+\subsubsection[{fragment\+Shader}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Open\+G\+L\+Shader$\ast$ Material\+::fragment\+Shader\hspace{0.3cm}{\ttfamily [protected]}}\label{class_material_a9a2cb05e65584fa9d4f0f4f0af74d55e}
+
+
+Definition at line 31 of file material.\+h.
+
+\hypertarget{class_material_a8adf8679e41e341b339f3460c3ba45ee}{}\index{Material@{Material}!fragment\+Shader\+File\+Name@{fragment\+Shader\+File\+Name}}
+\index{fragment\+Shader\+File\+Name@{fragment\+Shader\+File\+Name}!Material@{Material}}
+\subsubsection[{fragment\+Shader\+File\+Name}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Material\+::fragment\+Shader\+File\+Name\hspace{0.3cm}{\ttfamily [protected]}}\label{class_material_a8adf8679e41e341b339f3460c3ba45ee}
+
+
+Definition at line 28 of file material.\+h.
+
+\hypertarget{class_material_aa5f04d76a6b53bfb6eba238db8328490}{}\index{Material@{Material}!programm@{programm}}
+\index{programm@{programm}!Material@{Material}}
+\subsubsection[{programm}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Open\+G\+L\+Shader\+Program$\ast$ Material\+::programm\hspace{0.3cm}{\ttfamily [protected]}}\label{class_material_aa5f04d76a6b53bfb6eba238db8328490}
+
+
+Definition at line 33 of file material.\+h.
+
+\hypertarget{class_material_ac1241a29b62d04848cdc190f1de85849}{}\index{Material@{Material}!vertex\+Location@{vertex\+Location}}
+\index{vertex\+Location@{vertex\+Location}!Material@{Material}}
+\subsubsection[{vertex\+Location}]{\setlength{\rightskip}{0pt plus 5cm}int Material\+::vertex\+Location\hspace{0.3cm}{\ttfamily [protected]}}\label{class_material_ac1241a29b62d04848cdc190f1de85849}
+
+
+Definition at line 40 of file material.\+h.
+
+\hypertarget{class_material_af7fc01b5cbebefdc983797f60cd4772c}{}\index{Material@{Material}!vertex\+Shader@{vertex\+Shader}}
+\index{vertex\+Shader@{vertex\+Shader}!Material@{Material}}
+\subsubsection[{vertex\+Shader}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Open\+G\+L\+Shader$\ast$ Material\+::vertex\+Shader\hspace{0.3cm}{\ttfamily [protected]}}\label{class_material_af7fc01b5cbebefdc983797f60cd4772c}
+
+
+Definition at line 30 of file material.\+h.
+
+\hypertarget{class_material_af8361fc71a1f55c5a49100bee94bd94a}{}\index{Material@{Material}!vertex\+Shader\+File\+Name@{vertex\+Shader\+File\+Name}}
+\index{vertex\+Shader\+File\+Name@{vertex\+Shader\+File\+Name}!Material@{Material}}
+\subsubsection[{vertex\+Shader\+File\+Name}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Material\+::vertex\+Shader\+File\+Name\hspace{0.3cm}{\ttfamily [protected]}}\label{class_material_af8361fc71a1f55c5a49100bee94bd94a}
+
+
+Definition at line 27 of file material.\+h.
+
+\hypertarget{class_material_a12a1db7e857ec3bcbacbcd646f5cd16f}{}\index{Material@{Material}!world\+View\+Proj\+Matrix\+Location@{world\+View\+Proj\+Matrix\+Location}}
+\index{world\+View\+Proj\+Matrix\+Location@{world\+View\+Proj\+Matrix\+Location}!Material@{Material}}
+\subsubsection[{world\+View\+Proj\+Matrix\+Location}]{\setlength{\rightskip}{0pt plus 5cm}int Material\+::world\+View\+Proj\+Matrix\+Location\hspace{0.3cm}{\ttfamily [protected]}}\label{class_material_a12a1db7e857ec3bcbacbcd646f5cd16f}
+
+
+Definition at line 41 of file material.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{material_8h}{material.\+h}\item 
+\hyperlink{material_8cpp}{material.\+cpp}\end{DoxyCompactItemize}

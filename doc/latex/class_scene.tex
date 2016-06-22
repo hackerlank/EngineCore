@@ -1,0 +1,245 @@
+\hypertarget{class_scene}{}\section{Scene Class Reference}
+\label{class_scene}\index{Scene@{Scene}}
+
+
+The \hyperlink{class_scene}{Scene} class.  
+
+
+
+
+{\ttfamily \#include $<$scene.\+h$>$}
+
+Inheritance diagram for Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_scene}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_scene_a209847445cd18171aeae4a1a7637efea}{Scene} (Q\+Open\+G\+L\+Context $\ast$context, Q\+Object $\ast$parent=0)
+\item 
+\hyperlink{class_scene_a3b8cec2e32546713915f8c6303c951f1}{$\sim$\+Scene} ()
+\item 
+void \hyperlink{class_scene_a99ecb7628446690510dd1bb27dffc8e5}{add\+Material} (\hyperlink{class_material}{Material} $\ast$material)
+\item 
+void \hyperlink{class_scene_ac9add8bc84e2fcf26fede56e1d40a8ff}{remove\+Material} (\hyperlink{class_material}{Material} $\ast$material)
+\item 
+void \hyperlink{class_scene_a14884548876ba098f476afa0a4c6c030}{remove\+Material} (int at)
+\item 
+void \hyperlink{class_scene_a621e3f935f8bec1fa2d6b29eeeda8eaa}{add\+Renderable} (\hyperlink{class_renderable}{Renderable} $\ast$object)
+\item 
+void \hyperlink{class_scene_a585aebb726cb8a3ceca6cc8189e7bcd7}{remove\+Renderable} (int at)
+\item 
+void \hyperlink{class_scene_a161f58ff37be2425a9d716e73ba8d3b3}{remove\+Renderable} (\hyperlink{class_renderable}{Renderable} $\ast$object)
+\item 
+\hyperlink{class_camera}{Camera} $\ast$ \hyperlink{class_scene_a1845161fcd088622a1288a6c41bcd574}{camera} ()
+\item 
+\hyperlink{class_light}{Light} $\ast$ \hyperlink{class_scene_a01d2124c572f0341cb317745d3b7a0a4}{light} ()
+\item 
+virtual void \hyperlink{class_scene_a3a16f308d18a168f7778b9c3a29b3ac5}{Create} ()
+\begin{DoxyCompactList}\small\item\em Create. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_scene_ac8261e2bf3f39d17c921f0ccbfb1f48f}{Destroy} ()
+\begin{DoxyCompactList}\small\item\em Destroy. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_scene_a61d176e58a0cf69bb201b3ac052ba84e}{Render} (G\+Luint draw\+Order, const Q\+Matrix4x4 $\ast$p\+View, const Q\+Matrix4x4 $\ast$p\+Proj, const \hyperlink{class_light}{Light} $\ast$p\+Light)
+\begin{DoxyCompactList}\small\item\em Render renders the object to the open\+Gl contex. \end{DoxyCompactList}\item 
+void \hyperlink{class_scene_a91913b921d41d374e00eac347358dc14}{Render} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_scene}{Scene} class. 
+
+Describes a \hyperlink{class_scene}{Scene} of renderable Objects and holds dem in a Layer togehtner 
+
+Definition at line 19 of file scene.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_scene_a209847445cd18171aeae4a1a7637efea}{}\index{Scene@{Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!Scene@{Scene}}
+\subsubsection[{Scene(\+Q\+Open\+G\+L\+Context $\ast$context, Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Scene\+::\+Scene (
+\begin{DoxyParamCaption}
+\item[{Q\+Open\+G\+L\+Context $\ast$}]{context, }
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_scene_a209847445cd18171aeae4a1a7637efea}
+
+
+Definition at line 3 of file scene.\+cpp.
+
+\hypertarget{class_scene_a3b8cec2e32546713915f8c6303c951f1}{}\index{Scene@{Scene}!````~Scene@{$\sim$\+Scene}}
+\index{````~Scene@{$\sim$\+Scene}!Scene@{Scene}}
+\subsubsection[{$\sim$\+Scene()}]{\setlength{\rightskip}{0pt plus 5cm}Scene\+::$\sim$\+Scene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_scene_a3b8cec2e32546713915f8c6303c951f1}
+
+
+Definition at line 9 of file scene.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_scene_a99ecb7628446690510dd1bb27dffc8e5}{}\index{Scene@{Scene}!add\+Material@{add\+Material}}
+\index{add\+Material@{add\+Material}!Scene@{Scene}}
+\subsubsection[{add\+Material(\+Material $\ast$material)}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::add\+Material (
+\begin{DoxyParamCaption}
+\item[{{\bf Material} $\ast$}]{material}
+\end{DoxyParamCaption}
+)}\label{class_scene_a99ecb7628446690510dd1bb27dffc8e5}
+
+
+Definition at line 15 of file scene.\+cpp.
+
+\hypertarget{class_scene_a621e3f935f8bec1fa2d6b29eeeda8eaa}{}\index{Scene@{Scene}!add\+Renderable@{add\+Renderable}}
+\index{add\+Renderable@{add\+Renderable}!Scene@{Scene}}
+\subsubsection[{add\+Renderable(\+Renderable $\ast$object)}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::add\+Renderable (
+\begin{DoxyParamCaption}
+\item[{{\bf Renderable} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}\label{class_scene_a621e3f935f8bec1fa2d6b29eeeda8eaa}
+
+
+Definition at line 20 of file scene.\+cpp.
+
+\hypertarget{class_scene_a1845161fcd088622a1288a6c41bcd574}{}\index{Scene@{Scene}!camera@{camera}}
+\index{camera@{camera}!Scene@{Scene}}
+\subsubsection[{camera()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Camera}$\ast$ Scene\+::camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_scene_a1845161fcd088622a1288a6c41bcd574}
+
+
+Definition at line 40 of file scene.\+h.
+
+\hypertarget{class_scene_a3a16f308d18a168f7778b9c3a29b3ac5}{}\index{Scene@{Scene}!Create@{Create}}
+\index{Create@{Create}!Scene@{Scene}}
+\subsubsection[{Create()}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::\+Create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_scene_a3a16f308d18a168f7778b9c3a29b3ac5}
+
+
+Create. 
+
+Creates the \hyperlink{class_renderable}{Renderable} and initialize all open\+G\+L values 
+
+Implements \hyperlink{class_renderable_ab204246b39a34b14a3f258a065cc3019}{Renderable}.
+
+
+
+Definition at line 39 of file scene.\+cpp.
+
+\hypertarget{class_scene_ac8261e2bf3f39d17c921f0ccbfb1f48f}{}\index{Scene@{Scene}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!Scene@{Scene}}
+\subsubsection[{Destroy()}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::\+Destroy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_scene_ac8261e2bf3f39d17c921f0ccbfb1f48f}
+
+
+Destroy. 
+
+Destroies the \hyperlink{class_renderable}{Renderable} 
+
+Implements \hyperlink{class_renderable_aaf8e0b324e35f8a1b61a9667a0d91d51}{Renderable}.
+
+
+
+Definition at line 46 of file scene.\+cpp.
+
+\hypertarget{class_scene_a01d2124c572f0341cb317745d3b7a0a4}{}\index{Scene@{Scene}!light@{light}}
+\index{light@{light}!Scene@{Scene}}
+\subsubsection[{light()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Light}$\ast$ Scene\+::light (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_scene_a01d2124c572f0341cb317745d3b7a0a4}
+
+
+Definition at line 41 of file scene.\+h.
+
+\hypertarget{class_scene_ac9add8bc84e2fcf26fede56e1d40a8ff}{}\index{Scene@{Scene}!remove\+Material@{remove\+Material}}
+\index{remove\+Material@{remove\+Material}!Scene@{Scene}}
+\subsubsection[{remove\+Material(\+Material $\ast$material)}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::remove\+Material (
+\begin{DoxyParamCaption}
+\item[{{\bf Material} $\ast$}]{material}
+\end{DoxyParamCaption}
+)}\label{class_scene_ac9add8bc84e2fcf26fede56e1d40a8ff}
+\hypertarget{class_scene_a14884548876ba098f476afa0a4c6c030}{}\index{Scene@{Scene}!remove\+Material@{remove\+Material}}
+\index{remove\+Material@{remove\+Material}!Scene@{Scene}}
+\subsubsection[{remove\+Material(int at)}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::remove\+Material (
+\begin{DoxyParamCaption}
+\item[{int}]{at}
+\end{DoxyParamCaption}
+)}\label{class_scene_a14884548876ba098f476afa0a4c6c030}
+\hypertarget{class_scene_a585aebb726cb8a3ceca6cc8189e7bcd7}{}\index{Scene@{Scene}!remove\+Renderable@{remove\+Renderable}}
+\index{remove\+Renderable@{remove\+Renderable}!Scene@{Scene}}
+\subsubsection[{remove\+Renderable(int at)}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::remove\+Renderable (
+\begin{DoxyParamCaption}
+\item[{int}]{at}
+\end{DoxyParamCaption}
+)}\label{class_scene_a585aebb726cb8a3ceca6cc8189e7bcd7}
+\hypertarget{class_scene_a161f58ff37be2425a9d716e73ba8d3b3}{}\index{Scene@{Scene}!remove\+Renderable@{remove\+Renderable}}
+\index{remove\+Renderable@{remove\+Renderable}!Scene@{Scene}}
+\subsubsection[{remove\+Renderable(\+Renderable $\ast$object)}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::remove\+Renderable (
+\begin{DoxyParamCaption}
+\item[{{\bf Renderable} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}\label{class_scene_a161f58ff37be2425a9d716e73ba8d3b3}
+\hypertarget{class_scene_a61d176e58a0cf69bb201b3ac052ba84e}{}\index{Scene@{Scene}!Render@{Render}}
+\index{Render@{Render}!Scene@{Scene}}
+\subsubsection[{Render(\+G\+Luint draw\+Order, const Q\+Matrix4x4 $\ast$p\+View, const Q\+Matrix4x4 $\ast$p\+Proj, const Light $\ast$p\+Light)}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{G\+Luint}]{draw\+Order, }
+\item[{const Q\+Matrix4x4 $\ast$}]{p\+View, }
+\item[{const Q\+Matrix4x4 $\ast$}]{p\+Proj, }
+\item[{const {\bf Light} $\ast$}]{p\+Light}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_scene_a61d176e58a0cf69bb201b3ac052ba84e}
+
+
+Render renders the object to the open\+Gl contex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em draw\+Order} & \\
+\hline
+{\em p\+View} & Q\+Matrix4x4\}$\ast$ view matrix; \\
+\hline
+{\em p\+Proj} & Q\+Matrix4x4\mbox{]}$\ast$ projection matrix \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_renderable_aee9a55d459edefe6c8b8532ab5d7102c}{Renderable}.
+
+
+
+Definition at line 25 of file scene.\+cpp.
+
+\hypertarget{class_scene_a91913b921d41d374e00eac347358dc14}{}\index{Scene@{Scene}!Render@{Render}}
+\index{Render@{Render}!Scene@{Scene}}
+\subsubsection[{Render()}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::\+Render (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_scene_a91913b921d41d374e00eac347358dc14}
+
+
+Definition at line 63 of file scene.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{scene_8h}{scene.\+h}\item 
+\hyperlink{scene_8cpp}{scene.\+cpp}\end{DoxyCompactItemize}

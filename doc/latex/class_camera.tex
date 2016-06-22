@@ -1,0 +1,136 @@
+\hypertarget{class_camera}{}\section{Camera Class Reference}
+\label{class_camera}\index{Camera@{Camera}}
+
+
+The \hyperlink{class_camera}{Camera} class Class for a \hyperlink{class_camera}{Camera} in a 3\+D \hyperlink{class_scene}{Scene} The \hyperlink{class_camera}{Camera} Calculates the World to View Matrix and the Projection Matrix.  
+
+
+
+
+{\ttfamily \#include $<$camera.\+h$>$}
+
+Inheritance diagram for Camera\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_camera}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_camera_ab54c500b9e9cb8281bf89e15b767b3ac}{update\+Ratio} (int width, int height)
+\begin{DoxyCompactList}\small\item\em update\+Ratio updates the aspect\+Ratio for the Projection of the \hyperlink{class_camera}{Camera}. This shoud be updated when the screen size changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_camera_a3ac5bf011721a2b688e5ce077e4ee2e8}{Camera} (int width=1, int height=1)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_camera}{Camera} Creates a new \hyperlink{class_camera}{Camera} with standard values. \end{DoxyCompactList}\item 
+Q\+Matrix4x4 \hyperlink{class_camera_a1dd0e418636627fca41d061ef82d869d}{get\+World\+To\+View\+Matrix} () const 
+\begin{DoxyCompactList}\small\item\em get\+World\+To\+View\+Matrix generates the World to View Matrix for this \hyperlink{class_camera}{Camera} \end{DoxyCompactList}\item 
+Q\+Matrix4x4 \hyperlink{class_camera_aebc04996f3f393bdf98a8034d8f10a03}{get\+View\+To\+Projection\+Matrix} () const 
+\begin{DoxyCompactList}\small\item\em get\+View\+To\+Projection\+Matrix generates the Projection Matrix for this \hyperlink{class_camera}{Camera} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_camera}{Camera} class Class for a \hyperlink{class_camera}{Camera} in a 3\+D \hyperlink{class_scene}{Scene} The \hyperlink{class_camera}{Camera} Calculates the World to View Matrix and the Projection Matrix. 
+
+\hyperlink{class_camera}{Camera} is initilzed with standard values
+
+T\+O\+D\+O\+: Need function to change values 
+
+Definition at line 15 of file camera.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_camera_a3ac5bf011721a2b688e5ce077e4ee2e8}{}\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\subsubsection[{Camera(int width=1, int height=1)}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::\+Camera (
+\begin{DoxyParamCaption}
+\item[{int}]{width = {\ttfamily 1}, }
+\item[{int}]{height = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{class_camera_a3ac5bf011721a2b688e5ce077e4ee2e8}
+
+
+\hyperlink{class_camera}{Camera} Creates a new \hyperlink{class_camera}{Camera} with standard values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & width of the screen for the correct aspect\+Ratio \\
+\hline
+{\em height} & height of the screen for the correct aspect\+Ratio \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 3 of file camera.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_camera_aebc04996f3f393bdf98a8034d8f10a03}{}\index{Camera@{Camera}!get\+View\+To\+Projection\+Matrix@{get\+View\+To\+Projection\+Matrix}}
+\index{get\+View\+To\+Projection\+Matrix@{get\+View\+To\+Projection\+Matrix}!Camera@{Camera}}
+\subsubsection[{get\+View\+To\+Projection\+Matrix() const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Matrix4x4 Camera\+::get\+View\+To\+Projection\+Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_camera_aebc04996f3f393bdf98a8034d8f10a03}
+
+
+get\+View\+To\+Projection\+Matrix generates the Projection Matrix for this \hyperlink{class_camera}{Camera} 
+
+\begin{DoxyReturn}{Returns}
+Q\+Matrix4x4\} 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file camera.\+cpp.
+
+\hypertarget{class_camera_a1dd0e418636627fca41d061ef82d869d}{}\index{Camera@{Camera}!get\+World\+To\+View\+Matrix@{get\+World\+To\+View\+Matrix}}
+\index{get\+World\+To\+View\+Matrix@{get\+World\+To\+View\+Matrix}!Camera@{Camera}}
+\subsubsection[{get\+World\+To\+View\+Matrix() const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Matrix4x4 Camera\+::get\+World\+To\+View\+Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_camera_a1dd0e418636627fca41d061ef82d869d}
+
+
+get\+World\+To\+View\+Matrix generates the World to View Matrix for this \hyperlink{class_camera}{Camera} 
+
+\begin{DoxyReturn}{Returns}
+Q\+Matrix4x4\} World\+To\+View\+Matrix 
+\end{DoxyReturn}
+
+
+Definition at line 13 of file camera.\+cpp.
+
+\hypertarget{class_camera_ab54c500b9e9cb8281bf89e15b767b3ac}{}\index{Camera@{Camera}!update\+Ratio@{update\+Ratio}}
+\index{update\+Ratio@{update\+Ratio}!Camera@{Camera}}
+\subsubsection[{update\+Ratio}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::update\+Ratio (
+\begin{DoxyParamCaption}
+\item[{int}]{width, }
+\item[{int}]{height}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [slot]}}\label{class_camera_ab54c500b9e9cb8281bf89e15b767b3ac}
+
+
+update\+Ratio updates the aspect\+Ratio for the Projection of the \hyperlink{class_camera}{Camera}. This shoud be updated when the screen size changes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & int new width of the screen device \\
+\hline
+{\em height} & int new height of the screen devce \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file camera.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{camera_8h}{camera.\+h}\item 
+\hyperlink{camera_8cpp}{camera.\+cpp}\end{DoxyCompactItemize}
