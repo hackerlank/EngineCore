@@ -21,7 +21,8 @@ SOURCES += \
     $$PWD/light.cpp \
     $$PWD/camera.cpp \
     $$PWD/mesh.cpp \
-    $$PWD/meshnormal.cpp
+    $$PWD/meshnormal.cpp \
+    renderoffscreen.cpp
 
 
 
@@ -39,7 +40,8 @@ HEADERS += \
     $$PWD/scene.h \
     $$PWD/light.h \
     $$PWD/camera.h \
-    $$PWD/meshnormal.h
+    $$PWD/meshnormal.h \
+    renderoffscreen.h
 
 unix {
    target.path = /home/oliver/.lib
