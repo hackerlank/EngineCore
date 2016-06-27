@@ -27,6 +27,7 @@ protected:
 
     QMatrix4x4 worldToView; //ViewMatrix
     QMatrix4x4 viewToProjecton;
+    QMatrix4x4 animate;
 
 public:
     /*!
@@ -60,6 +61,12 @@ public:
      * \param light A light for rendering
      */
     virtual void Render(GLuint drawOrder, const QMatrix4x4 *pView, const QMatrix4x4 *pProj, const Light* light);
+
+    void setAnimationSpeed(float speed);
+    void setAnimationMatrix(QMatrix4x4 animate){this->animate = animate;}
+    virtual void update(double fTime, double fElapsedTime) {
+        matWorld->operator*=(animate);
+    }
 
 public slots:
 

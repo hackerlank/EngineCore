@@ -19,7 +19,7 @@
 class Material : public QObject
 {
 private:
-    Q_OBJECT
+    //Q_OBJECT
 protected:
 
     QOpenGLContext* contextDevice;
@@ -60,16 +60,22 @@ public:
     inline QOpenGLShader* getFragmentShader(){return fragmentShader;}
     inline QOpenGLShaderProgram* getShaderProgramm(){return programm;}
 
-    //QVector4D getDiffuseColor() const;
+    /*!
+     * \brief setDiffuseColor set a new DiffuseColor for the Material
+     * \param value QVector4D diffuse Color value
+     */
     void setDiffuseColor(const QVector4D &value){diffuseColor = value;}
 
-    //QVector4D getAmbientColor() const;
+    /*!
+     * \brief setAmbientColor set a new AmbientColor for the Material
+     * \param value QVector4D ambient Color value
+     */
     void setAmbientColor(const QVector4D &value){ambientColor = value;}
 
+//No Signals or Slots jet...
+//signals:
 
-signals:
-
-public slots:
+//public slots:
 };
 
 #endif // MATERIAL_H

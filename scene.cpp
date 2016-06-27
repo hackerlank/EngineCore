@@ -34,6 +34,14 @@ void Scene::Render(GLuint , const QMatrix4x4 *pView, const QMatrix4x4 *pProj, co
     }
 }
 
+void Scene::update(double fTime, double fElapsedTime)
+{
+    foreach (Renderable* obj, renderList) {
+
+        obj->update(fTime,fElapsedTime);
+    }
+}
+
 
 
 void Scene::Create()

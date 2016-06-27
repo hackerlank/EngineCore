@@ -2,28 +2,50 @@
 #define MESHNORMAL_H
 #include "mesh.h"
 
-
+/*!
+ * \brief The {abstract} MeshNormal class that extends Mesh so that Meshes can now have Vertex information and Normal information in the Buffer
+ */
 class MeshNormal : public Mesh
 {
+    //Need metadata for dynamic QObject cast diffrent types of meshes
     Q_OBJECT
 public:
 
+    /*!
+     * \brief The VertexNormal struct
+     * New structure for the vertex data buffer
+     * added normal values after each Vertex postion
+     */
     struct VertexNormal : public Mesh::Vertex{
-        VertexNormal(){};
-        explicit VertexNormal(QVector3D v,QVector3D n) : Vertex(v), norm(n){};
+        VertexNormal(){}
+        explicit VertexNormal(QVector3D v,QVector3D n) : Vertex(v), norm(n){}
 
         QVector3D norm;
     };
 
 protected:
-    MeshNormal(){
+    /*!
+     * \brief MeshNormal Creates a Empty Mesh
+     * Subklasses implements the Mesh data input
+     */
+    MeshNormal() :Mesh(){
         nTupel  = 0;
         nStride = 0;
         nOffset = 0;
     }
     virtual ~MeshNormal(){}
+
+    /*!
+     * \brief nTupel Dimension of the Normal Data
+     */
     int nTupel;
+    /*!
+     * \brief nStride distance in the buffer between Normal data
+     */
     int nStride;
+    /*!
+     * \brief nOffset start position of the Normal data
+     */
     int nOffset;
 
 

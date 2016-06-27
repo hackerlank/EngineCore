@@ -6,11 +6,16 @@
 #include <QOpenGLFunctions>
 #include <QExposeEvent>
 #include <QOpenGLFunctions_4_3_Core>
+#include <QTimer>
+#include <QElapsedTimer>
 #include "../scene.h"
 
 class MainWindow : public QWindow, protected QOpenGLFunctions_4_3_Core
 {
     Q_OBJECT
+
+    QTimer* timer;
+    QElapsedTimer *eTimer;
 
 public:
     MainWindow();
@@ -33,10 +38,10 @@ protected:
 
 public:
     void create();
-    void update();
+
 
 public slots:
-
+    void update();
 
 };
 

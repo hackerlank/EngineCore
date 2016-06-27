@@ -11,9 +11,6 @@ PrimitiveMesh::PrimitiveMesh(ShapeData* shape)
     iStride = 0;
     iOffset = 0;
 
-    vertexBuffer = new QOpenGLBuffer(QOpenGLBuffer::VertexBuffer);
-    indexBuffer = new QOpenGLBuffer(QOpenGLBuffer::IndexBuffer);
-
     pVertexData = new Mesh::Vertex[vSize];
     pIndex = new GLushort[iSize];
 
@@ -33,6 +30,4 @@ PrimitiveMesh::~PrimitiveMesh()
     delete [] pIndex;
     pVertexData = 0;
     pIndex = 0;
-    vertexBuffer = 0;
-    indexBuffer =0;
 }

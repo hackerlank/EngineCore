@@ -10,8 +10,6 @@
 void Normal3DMesh::init(QFile *objMeshFile)
 {
 
-    vertexBuffer = new QOpenGLBuffer(QOpenGLBuffer::VertexBuffer);
-    indexBuffer = new QOpenGLBuffer(QOpenGLBuffer::IndexBuffer);
 
     QString name;
     QVector<GLushort> inIndeciesVert;
@@ -122,10 +120,6 @@ Normal3DMesh::~Normal3DMesh()
 {
     delete [] pVertexData;
     delete [] pIndex;
-    delete vertexBuffer;
-    delete indexBuffer;
     pVertexData = 0;
     pIndex = 0;
-    vertexBuffer = 0;
-    indexBuffer =0;
 }

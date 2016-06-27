@@ -12,7 +12,7 @@
 /*!
  * \brief The Scene class
  *
- * Describes a Scene of renderable Objects
+ * Describes a Scene of renderable Objects could also contain a other scene
  * and holds dem in a Layer togehtner
  *
  */
@@ -45,6 +45,8 @@ public:
     virtual void Render(GLuint drawOrder,
                         const QMatrix4x4* pView,
                         const QMatrix4x4* pProj , const Light* pLight);
+    virtual void update(double fTime, double fElapsedTime);
+
 
     void Render();
 

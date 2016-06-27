@@ -83,9 +83,8 @@ void Material::Destroy()
 }
 
 /*!
- * \brief Material::CreateVertexLayout binds Material to a VertexBuffer and sets up the data structure
- * \param vertexBuffer QOpenGLBuffer with the VertexBuffer
- * \param format VertexFormat says what format the Buffer has with color etc
+ * \brief Material::CreateVertexLayout sets the Vertex Data Structure For a Mesh that shoud be renderd with this material
+ * \param format the Mesh that gives the stuctue of the data in the Buffer od the GPU
  */
 void Material::CreateVertexLayout(Mesh* format)
 {
@@ -97,8 +96,10 @@ void Material::CreateVertexLayout(Mesh* format)
 
     programm->setAttributeBuffer(vertexLocation,GL_FLOAT,format->vertexOffset(),format->vertexTupel(),format->vertexStride());
 
+    //When the Mesh has Normal data also also use them
     MeshNormal * nformat = qobject_cast<MeshNormal * >(format);
-    if(nformat){
+    if(nformat)
+    {
     programm->enableAttributeArray(normalLocation);
     programm->setAttributeBuffer(normalLocation,GL_FLOAT,nformat->normalOffset(),nformat->normalTupel(),nformat->normalStride());
     }
@@ -146,10 +147,13 @@ void Material::SetupPerObject(const QMatrix4x4 *matWorld, const QMatrix4x4 *matW
 void Material::SetupPerFrame(const Light *pLight)
 {
     QVector3D lightDir = pLight->getDirection();
+    QVector3D lightPos = pLight->getPosition();
+
     QVector3D lightDiffCol = pLight->getDiffuseColor();
     QVector3D lightAmbiCol = pLight->getAmbientColor();
 
     programm->setAttributeValue("glLightDir",lightDir);
+    programm->setAttributeValue("glLightPos",lightPos);
     programm->setAttributeValue("glLightDiffuseColor",lightDiffCol);
     programm->setAttributeValue("glLightAmbientColor",lightAmbiCol);
 

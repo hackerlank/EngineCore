@@ -2,8 +2,8 @@
     <qresource prefix="/">
         <file>vertex.vert</file>
         <file>untitled3.obj</file>
-        <file>untitled2.obj</file>
         <file>untitled.obj</file>
         <file>fragment.frag</file>
+        <file>untitled2.obj</file>
     </qresource>
 </RCC>
