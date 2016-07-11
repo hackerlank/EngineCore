@@ -9,7 +9,7 @@
 #include <QTimer>
 #include <QElapsedTimer>
 #include "../scene.h"
-
+#include "../Animation/newtondamper.h"
 class MainWindow : public QWindow, protected QOpenGLFunctions_4_3_Core
 {
     Q_OBJECT
@@ -21,9 +21,12 @@ public:
     MainWindow();
     ~MainWindow();
 
-
+    float set;
+    float * ctl;
+    int count;
 
     QOpenGLContext * context;
+    NewtonDamper * damper;
 
     Scene * scene;
 
@@ -42,6 +45,7 @@ public:
 
 public slots:
     void update();
+    void animate();
 
 };
 

@@ -3,6 +3,7 @@
 #include "../material.h"
 #include "../entity.h"
 #include "../mesh/normal3dmesh.h"
+#include <QTime>
 
 MainWindow::MainWindow()
     : QWindow()
@@ -50,9 +51,16 @@ MainWindow::MainWindow()
     timer = new QTimer();
     eTimer = new QElapsedTimer();
 
-    timer->singleShot(20,this,SLOT(update()));
+    timer->singleShot(20,this,SLOT(animate()));
     eTimer->start();
 
+    ctl = new float;
+
+    damper = new NewtonDamper(ctl, .1f);
+
+    damper->start();
+    count = 0;
+    qsrand(QTime::currentTime().msec()) ;
 }
 
 MainWindow::~MainWindow()
@@ -94,7 +102,32 @@ void MainWindow::create()
 
 void MainWindow::update()
 {
-    scene->update(0.0,eTimer->elapsed()/1000.0);
+
+    //timer->singleShot(20,this,SLOT(update()));
+}
+
+void MainWindow::animate()
+{
+
+
+    *ctl = set;
+    count++;
+
+    qInfo() << "B:" << *ctl;
+
+    damper->update(eTimer->elapsed(),0.1);
+
+
+    if(*ctl == set){
+        set = static_cast<qreal>(qrand())/(RAND_MAX/5);
+        count = 0;
+    }
+
+    qInfo() << "A:" << *ctl;
+
+    timer->singleShot(10,this,SLOT(animate()));
+
+    scene->update(*ctl,eTimer->elapsed()/1000.0);
     eTimer->restart();
 
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)  ;
@@ -104,5 +137,5 @@ void MainWindow::update()
 
     context->swapBuffers(this);
 
-    timer->singleShot(20,this,SLOT(update()));
+
 }

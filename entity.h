@@ -65,7 +65,10 @@ public:
     void setAnimationSpeed(float speed);
     void setAnimationMatrix(QMatrix4x4 animate){this->animate = animate;}
     virtual void update(double fTime, double fElapsedTime) {
-        matWorld->operator*=(animate);
+
+        animate = QMatrix4x4();
+        animate.translate(0,0,-1-fTime);
+        *matWorld = animate;
     }
 
 public slots:
