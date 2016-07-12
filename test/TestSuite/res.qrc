@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>torus.obj</file>
+        <file>box.obj</file>
+    </qresource>
+</RCC>

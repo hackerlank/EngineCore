@@ -19,7 +19,7 @@ public:
      * \param shape ShapeData
      */
     explicit PrimitiveMesh(ShapeData *shape);
-    ~PrimitiveMesh();
+    virtual ~PrimitiveMesh() Q_DECL_OVERRIDE;
 
 };
 

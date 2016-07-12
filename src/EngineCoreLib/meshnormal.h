@@ -23,6 +23,8 @@ public:
         QVector3D norm;
     };
 
+    virtual ~MeshNormal() {}
+
 protected:
     /*!
      * \brief MeshNormal Creates a Empty Mesh
@@ -33,7 +35,7 @@ protected:
         nStride = 0;
         nOffset = 0;
     }
-    virtual ~MeshNormal(){}
+
 
     /*!
      * \brief nTupel Dimension of the Normal Data

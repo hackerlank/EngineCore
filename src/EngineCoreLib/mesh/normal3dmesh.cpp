@@ -110,14 +110,16 @@ Normal3DMesh::Normal3DMesh(QFile *objMeshFile)
 {
     if(!objMeshFile->isOpen()) {
 
-        if(!objMeshFile->open(QFile::ReadOnly)) {
+        if(objMeshFile->open(QFile::ReadOnly)) {
             qWarning() << objMeshFile->errorString();
         }
         else {
             init(objMeshFile);
+            objMeshFile->close();
         }
-   }
+    }
 
+    init(objMeshFile);
 
 }
 

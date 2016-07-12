@@ -10,19 +10,23 @@
 class Normal3DMesh : public MeshNormal
 {
 private:
+
     void init(QFile* objMeshFile);
+
 public:
     /*!
      * \brief Normal3DMesh
      * \param objMeshFile QFile of the Mesh need to be opend to read
      */
     explicit Normal3DMesh(QFile* objMeshFile);
+
     /*!
      * \brief Normal3DMesh
      * \param file QString of tht position of the Mesh .obj file
      */
     explicit Normal3DMesh(QString file);
-    ~Normal3DMesh();
+
+    virtual ~Normal3DMesh() Q_DECL_OVERRIDE;
 };
 
 #endif // NORMAL3DMESH_H

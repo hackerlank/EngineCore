@@ -49,14 +49,11 @@ HEADERS += \
 
 
 unix {
-   target.path = /home/oliver/.lib
-   INSTALLS += target
+   #target.path = /home/oliver/.lib
+   #INSTALLS += target
 }
 
 
-CONFIG(debug, debug|release) {
- #   include(Test/EngineTest.pro)
-}
 
 
 

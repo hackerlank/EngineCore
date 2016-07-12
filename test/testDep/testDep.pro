@@ -5,3 +5,4 @@ else:unix: LIBS += -L$$OUT_PWD/../../src/EngineCoreLib/ -lEngineCore
 
 INCLUDEPATH += $$PWD/../../src/EngineCoreLib
 DEPENDPATH += $$PWD/../../src/EngineCoreLib
+
