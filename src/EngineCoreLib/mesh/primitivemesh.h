@@ -3,7 +3,7 @@
 
 //#include <QOpenGLBuffer>
 #include "../mesh.h"
-#include "../Primitives/shapedata.h"
+#include "../primitives/shapedata.h"
 
 /*!
  * \brief The PrimitiveMesh class Generates a Basic Mesh of position data from the Primitive Generated ShapeData

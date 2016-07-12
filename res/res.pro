@@ -1,0 +1,2 @@
+RESOURCES += \
+    testres.qrc

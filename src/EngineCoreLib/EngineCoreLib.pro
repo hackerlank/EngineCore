@@ -13,7 +13,7 @@ TEMPLATE = lib
 SOURCES += \
     $$PWD/mesh/normal3dmesh.cpp \
     $$PWD/mesh/primitivemesh.cpp \
-    $$PWD/Primitives/shapegenerator.cpp \
+    $$PWD/primitives/shapegenerator.cpp \
     $$PWD/entity.cpp \
     $$PWD/material.cpp \
     $$PWD/renderable.cpp \
@@ -22,19 +22,19 @@ SOURCES += \
     $$PWD/camera.cpp \
     $$PWD/mesh.cpp \
     $$PWD/meshnormal.cpp \
-    $$PWD/Animation/newtondamper.cpp
+    $$PWD/animation/newtondamper.cpp
     $$PWD/renderframe.cpp
 
 
 
 
 HEADERS += \
-    $$PWD/Primitives/vertex.h \
+    $$PWD/primitives/vertex.h \
     $$PWD/mesh/normal3dmesh.h \
     $$PWD/mesh/primitivemesh.h \
-    $$PWD/Primitives/shapedata.h \
-    $$PWD/Primitives/shapegenerator.h \
-    $$PWD/Primitives/vertex.h \
+    $$PWD/primitives/shapedata.h \
+    $$PWD/primitives/shapegenerator.h \
+    $$PWD/primitives/vertex.h \
     $$PWD/entity.h \
     $$PWD/material.h \
     $$PWD/mesh.h \
@@ -43,8 +43,8 @@ HEADERS += \
     $$PWD/light.h \
     $$PWD/camera.h \
     $$PWD/meshnormal.h \
-    $$PWD/Animation/animator.h \
-    $$PWD/Animation/newtondamper.h
+    $$PWD/animation/animator.h \
+    $$PWD/animation/newtondamper.h
     $$PWD/renderframe.h
 
 
@@ -53,9 +53,12 @@ unix {
    INSTALLS += target
 }
 
-debug {
-    include(Test/EngineTest.pro)
+
+CONFIG(debug, debug|release) {
+ #   include(Test/EngineTest.pro)
 }
+
+
 
 DISTFILES += \
     LICENSE \

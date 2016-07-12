@@ -62,7 +62,7 @@ public:
      */
     virtual void Render(GLuint drawOrder, const QMatrix4x4 *pView, const QMatrix4x4 *pProj, const Light* light) Q_DECL_OVERRIDE;
 
-    virtual void update(double fTime, double fElapsedTime) Q_DECL_OVERRIDE;
+    virtual void update(double fTime, double fElapsedTime) Q_DECL_OVERRIDE {}
 
 public slots:
 

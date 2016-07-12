@@ -1,7 +1,7 @@
 #include "entity.h"
 #include "mesh/primitivemesh.h"
 #include "mesh/normal3dmesh.h"
-#include "Primitives/shapegenerator.h"
+#include "primitives/shapegenerator.h"
 #include <QOpenGLFunctions>
 #include <QFile>
 
