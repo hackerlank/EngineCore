@@ -23,6 +23,8 @@ SOURCES += \
     $$PWD/mesh.cpp \
     $$PWD/meshnormal.cpp \
     $$PWD/Animation/newtondamper.cpp
+    $$PWD/renderframe.cpp
+
 
 
 
@@ -43,10 +45,16 @@ HEADERS += \
     $$PWD/meshnormal.h \
     $$PWD/Animation/animator.h \
     $$PWD/Animation/newtondamper.h
+    $$PWD/renderframe.h
+
 
 unix {
    target.path = /home/oliver/.lib
    INSTALLS += target
+}
+
+debug {
+    include(Test/EngineTest.pro)
 }
 
 DISTFILES += \
