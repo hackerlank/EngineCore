@@ -2,9 +2,13 @@
 
 PrimitiveMesh::PrimitiveMesh(ShapeData* shape)
 {
+    Q_CHECK_PTR(shape);
+
+    //read shape size
     vSize = shape->numVertices;
     iSize = shape->numIndices;
 
+    //Dens packed 3D Data
     vTupel = 3;
     vStride= 0;
     vOffset= 0;
@@ -14,6 +18,7 @@ PrimitiveMesh::PrimitiveMesh(ShapeData* shape)
     pVertexData = new Mesh::Vertex[vSize];
     pIndex = new GLushort[iSize];
 
+    //Copy data from shape
     for (int i = 0; i<vSize; i++){
         pVertexData[i].vert =  shape->vertices[i].position();
     }
@@ -26,6 +31,9 @@ PrimitiveMesh::PrimitiveMesh(ShapeData* shape)
 
 PrimitiveMesh::~PrimitiveMesh()
 {
+    Q_CHECK_PTR(pVertexData);
+    Q_CHECK_PTR(pIndex);
+
     delete [] pVertexData;
     delete [] pIndex;
     pVertexData = 0;

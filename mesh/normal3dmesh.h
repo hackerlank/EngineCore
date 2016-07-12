@@ -9,6 +9,7 @@
  */
 class Normal3DMesh : public MeshNormal
 {
+private:
     void init(QFile* objMeshFile);
 public:
     /*!

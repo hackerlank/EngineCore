@@ -50,11 +50,13 @@ protected:
     }
     virtual ~Mesh(){
 
+        Q_CHECK_PTR(vertexBuffer);
+        Q_CHECK_PTR(indexBuffer);
+
         delete vertexBuffer;
         delete indexBuffer;
         vertexBuffer = NULL;
         indexBuffer =NULL;
-
     }
 
     QOpenGLBuffer* vertexBuffer;
@@ -112,13 +114,36 @@ public:
     virtual inline int  indexStride(){return iStride;}
     virtual inline int  indexOffset(){return iOffset;}
 
-    virtual inline void bind()    {vertexBuffer->bind(); indexBuffer->bind();}
-    virtual inline void release() {vertexBuffer->release(); indexBuffer->bind();}
+    virtual inline void bind() {
+
+        Q_CHECK_PTR(vertexBuffer);
+        Q_CHECK_PTR(indexBuffer);
+
+        Q_ASSERT(vertexBuffer->isCreated() && indexBuffer->isCreated());
+
+        vertexBuffer->bind();
+        indexBuffer->bind();
+    }
+    virtual inline void release() {
+
+        Q_CHECK_PTR(vertexBuffer);
+        Q_CHECK_PTR(indexBuffer);
+
+        vertexBuffer->release();
+        indexBuffer->bind();
+    }
 
     /*!
      * \brief Create the OpenGL buffer objects for This Mesh from the mesh data and sends this data to the GPU
      */
     virtual void Create();
+
+    /*!
+     * \brief Create the OpenGL buffer objects for This Mesh from the mesh data and sends this data to the GPU
+     * \param bufferSizeVertex
+     * \param bufferSizeIndex
+     */
+    virtual void Create(int bufferSizeVertex, int bufferSizeIndex);
 
 
     /*!
@@ -126,6 +151,9 @@ public:
      */
     virtual inline void Destroy()
     {
+        Q_CHECK_PTR(vertexBuffer);
+        Q_CHECK_PTR(indexBuffer);
+
         this->vertexBuffer->destroy();
         this->indexBuffer->destroy();
     }

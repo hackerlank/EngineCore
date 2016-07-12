@@ -1,9 +1,9 @@
 #include "mesh.h"
 
-void Mesh::Create(){
+void Mesh::Create(int bufferSizeVertex, int bufferSizeIndex) {
 
-        int bufferSizeVertex = static_cast<int>(sizeof(QVector3D)) * vSize;
-        int bufferSizeIndex  = static_cast<int>(sizeof(GLushort))  * iSize;
+       Q_CHECK_PTR(pVertexData);
+       Q_CHECK_PTR(pIndex);
 
         this->vertexBuffer->create();
         this->indexBuffer->create();
@@ -20,4 +20,12 @@ void Mesh::Create(){
         this->indexBuffer->write(0,pIndex,bufferSizeIndex);
         this->indexBuffer->release();
 
+}
+
+void Mesh::Create() {
+
+        int bufferSizeVertex = static_cast<int>(sizeof(Vertex)) * vSize;
+        int bufferSizeIndex  = static_cast<int>(sizeof(GLushort))  * iSize;
+
+        Mesh::Create(bufferSizeVertex,bufferSizeIndex);
 }

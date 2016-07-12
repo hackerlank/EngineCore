@@ -27,7 +27,7 @@ protected:
 
     QMatrix4x4 worldToView; //ViewMatrix
     QMatrix4x4 viewToProjecton;
-    QMatrix4x4 animate;
+
 
 public:
     /*!
@@ -46,12 +46,12 @@ public:
      * \brief Create and initilize OpenGL Values
      * Creates Mesh and Material and initilize them
      */
-    virtual void Create();
+    virtual void Create() Q_DECL_OVERRIDE;
 
     /*!
      * \brief Destroy Clear the GPU Memory and Delets the OpenGL Values
      */
-    virtual void Destroy();
+    virtual void Destroy() Q_DECL_OVERRIDE;
 
     /*!
      * \brief Render Renders the Entity to the given openGL context
@@ -60,16 +60,9 @@ public:
      * \param pProj Projection for the Entity
      * \param light A light for rendering
      */
-    virtual void Render(GLuint drawOrder, const QMatrix4x4 *pView, const QMatrix4x4 *pProj, const Light* light);
+    virtual void Render(GLuint drawOrder, const QMatrix4x4 *pView, const QMatrix4x4 *pProj, const Light* light) Q_DECL_OVERRIDE;
 
-    void setAnimationSpeed(float speed);
-    void setAnimationMatrix(QMatrix4x4 animate){this->animate = animate;}
-    virtual void update(double fTime, double fElapsedTime) {
-
-        animate = QMatrix4x4();
-        animate.translate(0,0,-1-fTime);
-        *matWorld = animate;
-    }
+    virtual void update(double fTime, double fElapsedTime) Q_DECL_OVERRIDE;
 
 public slots:
 

@@ -60,7 +60,7 @@ public:
     /*!
      * \brief Create the OpenGL buffer objects for This Mesh from the mesh data and sends this data to the GPU
      */
-    virtual void Create();
+    virtual void Create() Q_DECL_OVERRIDE;
 
 };
 

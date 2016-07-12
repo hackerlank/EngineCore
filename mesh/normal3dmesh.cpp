@@ -5,10 +5,13 @@
 #include <qopengl.h>
 #include <QStringList>
 #include <QByteArray>
-
+#include <QDebug>
 
 void Normal3DMesh::init(QFile *objMeshFile)
 {
+
+    Q_CHECK_PTR(objMeshFile);
+
 
 
     QString name;
@@ -105,15 +108,32 @@ void Normal3DMesh::init(QFile *objMeshFile)
 
 Normal3DMesh::Normal3DMesh(QFile *objMeshFile)
 {
-    init(objMeshFile);
+    if(!objMeshFile->isOpen()) {
+
+        if(!objMeshFile->open(QFile::ReadOnly)) {
+            qWarning() << objMeshFile->errorString();
+        }
+        else {
+            init(objMeshFile);
+        }
+   }
+
+
 }
 
 Normal3DMesh::Normal3DMesh(QString filename)
 {
     QFile file(filename);
 
-    file.open(QFile::ReadOnly);
-    init(&file);
+
+    if(!file.open(QFile::ReadOnly)) {
+        qWarning() << file.errorString();
+    }
+    else {
+        init(&file);
+    }
+
+
 }
 
 Normal3DMesh::~Normal3DMesh()

@@ -21,7 +21,7 @@ protected:
 
 public:
 
-    Animator(float * controlValue) {
+    explicit Animator(float * controlValue) {
 
         isRunning = false;
         value = controlValue;
