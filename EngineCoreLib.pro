@@ -48,6 +48,10 @@ unix {
    INSTALLS += target
 }
 
+debug {
+    include(Test/EngineTest.pro)
+}
+
 DISTFILES += \
     LICENSE \
     README.md

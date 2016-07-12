@@ -4,19 +4,19 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-include(../EngineCoreLib.pro)
-
-TARGET = EngineTest
+CONFIG += testcase
 TEMPLATE = app
 
-SOURCES += main.cpp\
-        mainwindow.cpp
 
-HEADERS  += mainwindow.h
+SOURCES += \ #$$PWD/main.cpp\
+    $$PWD/testmesh.cpp
+        #$$PWD/mainwindow.cpp
+
+HEADERS  += #$$PWD/mainwindow.h
 
 
 INCLUDEPATH += $$PWD/.
@@ -24,10 +24,9 @@ DEPENDPATH += $$PWD/.
 
 
 DISTFILES += \
-    vertex.vert \
-    fragment.frag \
-    .gitignore \
-    geo.geo
+    #$$PWD/vertex.vert \
+    #$$PWD/fragment.frag \
+    #$$PWD/.gitignore \
 
 RESOURCES += \
-    res.qrc
+    $$PWD/res.qrc

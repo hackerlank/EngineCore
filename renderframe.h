@@ -1,7 +1,7 @@
 #ifndef RENDERFRAME_H
 #define RENDERFRAME_H
 
-#include <QWidget>
+#include <QWindow>
 #include <QOpenGLContext>
 #include <QOpenGLFunctions>
 #include <QExposeEvent>
@@ -11,7 +11,10 @@
 
 #include "scene.h"
 
-class RenderFrame : public QWidget , protected QOpenGLFunctions
+/*!
+ * \brief The RenderFrame a QWidget with OpenGl Renderring and a TimerLoop
+ */
+class RenderFrame : public QWindow , protected QOpenGLFunctions
 {
     Q_OBJECT
 
@@ -22,26 +25,32 @@ class RenderFrame : public QWidget , protected QOpenGLFunctions
     QElapsedTimer timerDelta;
     unsigned long currentMs;
 
+    bool exposed;
+
 private slots:
     void timerLoop();
 
 
 public:
-    explicit RenderFrame(QWidget *parent = 0);
+    explicit RenderFrame(QWindow *parent = 0);
 
+    void setScene(Scene * scene) {this->scene = scene;}
+    Scene * getScene() {return scene;}
 
 
 
 protected:
     virtual void exposeEvent(QExposeEvent *);
+
     virtual void resizeEvent(QResizeEvent *);
 
+    virtual void GLCreate();
 
- //   virtual void mousePressEvent(QMouseEvent * e);
- //   virtual void mouseMoveEvent(QMouseEvent * e);
- //   virtual void mouseReleaseEvent(QMouseEvent *e);
+
+
 
 public:
+    virtual void GLRender();
     void create();
 
 public slots:
