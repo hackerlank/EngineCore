@@ -1,0 +1,4 @@
+#ifndef TST_SCENETEST_H
+#define TST_SCENETEST_H
+
+#endif // TST_SCENETEST_H

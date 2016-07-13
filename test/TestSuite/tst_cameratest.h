@@ -1,0 +1,4 @@
+#ifndef TST_CAMERATEST_H
+#define TST_CAMERATEST_H
+
+#endif // TST_CAMERATEST_H
