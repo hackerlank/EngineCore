@@ -1,4 +1,4 @@
-QT += core testlib
+QT += core gui widgets opengl testlib
 
 CONFIG += c++11
 
@@ -11,7 +11,11 @@ SOURCES += main.cpp
 
 HEADERS += \
     tst_meshtest.h \
-    tst_materialtest.h
+    tst_materialtest.h \
+    tst_renderabletest.h \
+    tst_scenetest.h \
+    tst_cameratest.h \
+    tst_entitytest.h
 
 unix|win32: LIBS += -L$$OUT_PWD/../../src/EngineCoreLib/ -lEngineCore
 

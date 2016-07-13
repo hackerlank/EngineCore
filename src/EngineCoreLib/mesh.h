@@ -114,6 +114,11 @@ public:
     virtual inline int  indexStride(){return iStride;}
     virtual inline int  indexOffset(){return iOffset;}
 
+    /*!
+     * \brief bind binds the Mesh to the current OpenGL Contex to render it
+     *
+     * \see release()
+     */
     virtual inline void bind() {
 
         Q_CHECK_PTR(vertexBuffer);
@@ -124,6 +129,12 @@ public:
         vertexBuffer->bind();
         indexBuffer->bind();
     }
+
+    /*!
+     * \brief release release the current Mesh from the Context
+     *
+     * \see bind()
+     */
     virtual inline void release() {
 
         Q_CHECK_PTR(vertexBuffer);
@@ -157,6 +168,27 @@ public:
         this->vertexBuffer->destroy();
         this->indexBuffer->destroy();
     }
+
+    /*!
+     * \brief getVertexBuffer returns the OpenGL buffer Object with the Vertex data.
+     * For testing only
+     *
+     * \return VertexBuffer with vertex data
+     */
+    QOpenGLBuffer* getVertexBuffer() {
+        return vertexBuffer;
+    }
+
+    /*!
+     * \brief getIndexBuffer returns the OpenGL buffer Object with the index data.
+     * For testing only
+     *
+     * \return IndexBuffer with vertex data
+     */
+    QOpenGLBuffer* getIndexBuffer() {
+        return indexBuffer;
+    }
+
 
 };
 

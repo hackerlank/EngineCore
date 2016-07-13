@@ -1,11 +1,15 @@
 
 #include <QtTest>
+#include <QOpenGLContext>
+#include <QOffscreenSurface>
+
 
 #include "mesh.h"
 #include "meshnormal.h"
 #include "mesh/normal3dmesh.h"
 
-class MeshTest : public QObject {
+
+class MeshTest : public QObject{
 
      Q_OBJECT
 
@@ -17,9 +21,23 @@ class MeshTest : public QObject {
 
     MeshNormal * mesh;
 
+    QOpenGLContext * context;
+    QOffscreenSurface * surface;
+
 
 public:
     MeshTest() {
+
+        surface = new QOffscreenSurface();
+        surface->create();
+
+        context = new QOpenGLContext();
+        context->setFormat(surface->format());
+        context->setScreen(surface->screen());
+        context->create();
+
+        bool madeContext = context->makeCurrent(surface);
+        Q_ASSERT(madeContext);
 
         fileNames = new QString[2];
         fileNames[0] = ":/box.obj";
@@ -31,6 +49,15 @@ public:
         file = NULL;
         mesh = NULL;
 
+    }
+
+    ~MeshTest(){
+        delete fileNames;
+        fileNames = NULL;
+        delete context;
+        context = NULL;
+        delete surface;
+        surface = NULL;
     }
 
 
@@ -127,6 +154,23 @@ private Q_SLOTS:
 
     }
 
+    void testCreate() {
+
+        mesh->Create();
+
+        QVERIFY(mesh->getVertexBuffer()->isCreated());
+        QVERIFY(mesh->getIndexBuffer()->isCreated());
+
+    }
+
+    void testBind() {
+        mesh->bind();
+
+        QVERIFY2(true,"Fail");
+
+        mesh->release();
+    }
+
     void testAltSize() {
 
         primaryFile = fileNames[1];
@@ -135,7 +179,7 @@ private Q_SLOTS:
 
         this->initTestCase();
 
-        this->testFormat();
+        this->testSize();
 
     }
 
