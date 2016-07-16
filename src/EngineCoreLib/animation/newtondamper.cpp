@@ -2,87 +2,103 @@
 #include <qmath.h>
 #include <QDebug>
 
-const float NewtonDamper::FLOAT_MAX = std::numeric_limits<float>::max();
 
 
 
 
-NewtonDamper::NewtonDamper(float * controlValue, float acceleration, float maxSpeed) : Animator(controlValue)
+NewtonDamper::NewtonDamper(float * controlValue, float midSpeed) : Animator(controlValue)
 {
-    this->lastValue = 0;
+    this->lastPosition = 0;
     this->lastTime = 0;
 
-    this->acceleration = acceleration;
-    this->speed = 0;
-
-    this->maxSpeed = maxSpeed;
+    this->midSpeed = midSpeed;
 }
 
 void NewtonDamper::updateAnimation(unsigned long time, double elapsedTime)
 {
-    float currentValue = *value; //read
+    float currentPosition = *value; //read
 
     double elapsed = static_cast<double>(time - lastTime) / 1000.0;
 
-    float nextValue;
+    if(lastPosition =! currentPosition)
+    {
+        //the value was changed from the outside
 
-    float dirAccl;
-
-    if(currentValue == lastValue)
-        return;
-
-
-
-    if(currentValue >= lastValue)
-        dirAccl = 1.0f;
-    else
-        dirAccl = -1.0f;
-
-  //  float s = speed * elapsed + acceleration + elapsed;
-   // if(lastValue/currentValue > 0.5)
-   //     dirAccl = -dirAccl;
-
-    speed += dirAccl * acceleration * elapsed;
-
-    nextValue = lastValue + (speed * elapsed);
-
-
-    if(fabs(currentValue - lastValue) < fabs(currentValue - nextValue)){
-        nextValue = currentValue;
-        speed = 0.0;
     }
 
-    //return
-    *value = nextValue;
-    lastValue = nextValue;
+
+
 }
 
 float NewtonDamper::getSpeed() const
 {
-    return speed;
+    return midSpeed;
 }
 
 void NewtonDamper::setSpeed(float value)
 {
-    speed = value;
+    midSpeed = value;
 }
 
-float NewtonDamper::getMaxSpeed() const
+
+
+// -- Static Calculation functions
+// -- speed up when non static ??
+
+double NewtonDamper::calcTargetTime(double startTime, double startPosition, double targetPos, double speed)
 {
-    return maxSpeed;
+    double st = startTime;
+    double sp = startPosition;
+    double tp = targetPos;
+
+    double a = speed;
+    double b = -a *st + sp;
+
+    double calTime = (tp-b)/a;
+
+    return calTime;
 }
 
-void NewtonDamper::setMaxSpeed(float value)
+double NewtonDamper::funcA(double startTime, double startPosition, double startVelocity, double targetTime, double targetPos)
 {
-    maxSpeed = value;
+    double a = -(-startTime*startVelocity+startVelocity*targetTime+2*startPosition-2*targetPos)/
+            ((startTime*startTime*startTime)-3*(startTime*startTime)*targetTime+3*startTime*(targetTime*targetTime)-targetTime*targetTime*targetTime);
+
+    return a;
+
 }
 
-float NewtonDamper::getAcceleration() const
+double NewtonDamper::funcB(double startTime, double startPosition, double startVelocity, double targetTime, double targetPos)
 {
-    return acceleration;
+
+    double part =  ((startTime-targetTime)*((startTime*startTime)-2*startTime*targetTime+(targetTime*targetTime)));
+
+    double b = (-(startTime*startTime)*startVelocity-startTime*startVelocity*targetTime+2*startVelocity*(targetTime*targetTime)+3*startPosition*startTime+3*startPosition*targetTime-3*startTime*targetPos-3*targetPos*targetTime)
+            /part;
+
+
+
+    return b;
 }
 
-void NewtonDamper::setAcceleration(float value)
+double NewtonDamper::funcC(double startTime, double startPosition, double startVelocity, double targetTime, double targetPos)
 {
-    acceleration = value;
+    double part =  ((startTime-targetTime)*((startTime*startTime)-2*startTime*targetTime+(targetTime*targetTime)));
+
+
+    double c = -(-2*(startTime*startTime)*startVelocity+startTime*startVelocity*targetTime+startVelocity*(targetTime*targetTime)+6*startPosition*startTime-6*startTime*targetPos)*targetTime
+            /part;
+
+    return c;
+}
+
+double NewtonDamper::funcD(double startTime, double startPosition, double startVelocity, double targetTime, double targetPos)
+{
+    double part =  ((startTime-targetTime)*((startTime*startTime)-2*startTime*targetTime+(targetTime*targetTime)));
+
+
+    double d = (-(startTime*startTime)*startVelocity*(targetTime*targetTime)+startTime*startVelocity*(targetTime*targetTime*targetTime)+3*startPosition*startTime*(targetTime*targetTime)-startPosition*(targetTime*targetTime*targetTime)+(startTime*startTime*startTime)*targetPos-3*(startTime*startTime)*targetPos*targetTime)
+            /part;
+
+    return d;
 }

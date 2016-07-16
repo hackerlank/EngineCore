@@ -5,6 +5,7 @@
 
 #include "tst_materialtest.h"
 #include "tst_meshtest.h"
+#include "tst_newtowndamper.h"
 
 #define TEST_ADD(TestClass) (tests.append(new TestClass))
 
@@ -18,6 +19,8 @@ int main(int argc, char *argv[])
 
     TEST_ADD(MaterialTest);
     TEST_ADD(MeshTest);
+    TEST_ADD(NewtonDamperTest);
+
 
 
     int ret = 0;

@@ -15,7 +15,8 @@ HEADERS += \
     tst_renderabletest.h \
     tst_scenetest.h \
     tst_cameratest.h \
-    tst_entitytest.h
+    tst_entitytest.h \
+    tst_newtowndamper.h
 
 unix|win32: LIBS += -L$$OUT_PWD/../../src/EngineCoreLib/ -lEngineCore
 
