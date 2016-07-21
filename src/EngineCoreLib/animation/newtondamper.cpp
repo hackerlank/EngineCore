@@ -10,24 +10,45 @@ NewtonDamper::NewtonDamper(float * controlValue, float midSpeed) : Animator(cont
 {
     this->lastPosition = 0;
     this->lastTime = 0;
-
+    this->needTargetUpdate = true;
     this->midSpeed = midSpeed;
 }
 
+void NewtonDamper::setTarget(float newValue)
+{
+    needTargetUpdate = true;
+    targetPosition = newValue;
+}
+
+
+//sieht schon gut aus
+// geht auch eine interpolation bei der die Geschwindichkeit erhalten bleibt beim setzen einens neuen ziels !
 void NewtonDamper::updateAnimation(unsigned long time, double elapsedTime)
 {
     float currentPosition = *value; //read
 
-    double elapsed = static_cast<double>(time - lastTime) / 1000.0;
+    double timems = static_cast<double>(time) / 1000.0;
+    double elapsed = static_cast<double>(time - lastTime) / 1000.0; //elapsed in millisec
 
-    if(lastPosition =! currentPosition)
-    {
-        //the value was changed from the outside
-
+    if (needTargetUpdate) {
+        targetTime = calcTargetTime(timems,currentPosition,targetPosition,midSpeed);
     }
 
+    double a = funcA(lastTime,lastPosition,lastVelocity,targetTime,targetPosition);
+
+    double b = funcB(lastTime,lastPosition,lastVelocity,targetTime,targetPosition);
+
+    double c = funcC(lastTime,lastPosition,lastVelocity,targetTime,targetPosition);
+
+    double d = funcD(lastTime,lastPosition,lastVelocity,targetTime,targetPosition);
+
+    double nextPositon = a*(timems*timems*timems) + b*(timems*timems) + c*(timems) + d;
+    double nextVelocity = (1.0/3.0) * a *(timems*timesms) + 0.5*b*(timems) + c;
 
 
+    this->lastPosition = nextPositon;
+    this->lastVelocity = nextVelocity;
+    this->lastTime = timems;
 }
 
 float NewtonDamper::getSpeed() const

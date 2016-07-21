@@ -22,7 +22,8 @@ SOURCES += \
     $$PWD/camera.cpp \
     $$PWD/mesh.cpp \
     $$PWD/meshnormal.cpp \
-    $$PWD/animation/newtondamper.cpp
+    $$PWD/animation/newtondamper.cpp \
+    animation/sinewave.cpp
     $$PWD/renderframe.cpp
 
 
@@ -44,7 +45,8 @@ HEADERS += \
     $$PWD/camera.h \
     $$PWD/meshnormal.h \
     $$PWD/animation/animator.h \
-    $$PWD/animation/newtondamper.h
+    $$PWD/animation/newtondamper.h \
+    animation/sinewave.h
     $$PWD/renderframe.h
 
 

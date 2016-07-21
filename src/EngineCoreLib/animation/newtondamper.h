@@ -14,16 +14,18 @@ private:
     Q_OBJECT
 
     float lastPosition;
-    unsigned long lastTime;
+    double lastTime;
     float lastVelocity;
 
     float targetPosition;
     float targetTime;
+    bool needTargetUpdate;
 
     float midSpeed;
 
 
 protected:
+
 
     virtual void updateAnimation(unsigned long time, double elapsedTime);
 
@@ -31,6 +33,11 @@ protected:
 public:
     NewtonDamper(float * controlValue, float midSpeed = 2);
 
+    /*!
+     * \brief setTarget sets a new Animation target position
+     * \param newValue
+     */
+    virtual void setTarget(float newValue);
     float getSpeed() const;
     void setSpeed(float value);
 
