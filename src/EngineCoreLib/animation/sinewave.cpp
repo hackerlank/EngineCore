@@ -18,7 +18,7 @@ void SineWave::updateAnimation(unsigned long time, double elapsedTime)
 
     double timems = (time - startTime) / 1000.0;
 
-    *value = sin( timems * speed) * amplitude;
+    *value = sin( timems * waveSpeed) * amplitude;
 }
 
 void SineWave::resetAnimation()

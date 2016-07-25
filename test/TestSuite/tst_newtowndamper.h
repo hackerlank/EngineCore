@@ -152,7 +152,7 @@ private Q_SLOTS:
         const double startPos = 3.0/125.0;
         const double startVel = 64.0/125.0;
         const double targetTim =36.0;
-        const double targetPos = 512.0;;1.0;
+        const double targetPos = 512.0;
 
         double c = this->funcC(startTim , startPos , startVel ,targetTim ,targetPos );
 
@@ -169,7 +169,7 @@ private Q_SLOTS:
 
         const double startTim = 1.0;
         const double startPos = 242.0/125.0;
-        const double1.0; startVel = 216.0/125.0;
+        const double startVel = 216.0/125.0;
         const double targetTim = 5.0;
         const double targetPos = 10.0;
 
@@ -197,7 +197,59 @@ private Q_SLOTS:
         QVERIFY2(qFuzzyCompare(d , solution) , qPrintable(msg));
 
     }
+    void testTargetCalc1() {
 
+        const double solution = 1.0;
+
+        const double startTim = 0.0;
+        const double startPos = 3.0;
+        const double targetPos = 4.0;
+        const double speed = 1.0;
+
+        double targetTimeErg = this->calcTargetTime(startTim,startPos,targetPos,speed);
+
+        QString msg = QString("clac: ") + QString::number(targetTimeErg) + QString(" sol: ") + QString::number(solution);
+
+        QVERIFY2(qFuzzyCompare(targetTimeErg, solution), qPrintable(msg));
+
+
+    }
+
+    void testTargetCalc2() {
+
+        const double solution = 5.0;
+
+        const double startTim = 4.0;
+        const double startPos = 3.0;
+        const double targetPos = 6.0;
+        const double speed = 3.0;
+
+        double targetTimeErg = this->calcTargetTime(startTim,startPos,targetPos,speed);
+
+        QString msg = QString("clac: ") + QString::number(targetTimeErg) + QString(" sol: ") + QString::number(solution);
+
+        QVERIFY2(qFuzzyCompare(targetTimeErg, solution), qPrintable(msg));
+
+
+    }
+
+    void testTargetCalc3() {
+
+        const double solution = 6.0;
+
+        const double startTim = 3.0;
+        const double startPos = 1.5;
+        const double targetPos = 0.0;
+        const double speed = 0.5;
+
+        double targetTimeErg = this->calcTargetTime(startTim,startPos,targetPos,speed);
+
+        QString msg = QString("clac: ") + QString::number(targetTimeErg) + QString(" sol: ") + QString::number(solution);
+
+        QVERIFY2(qFuzzyCompare(targetTimeErg, solution), qPrintable(msg));
+
+
+    }
 
 
 };

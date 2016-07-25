@@ -43,7 +43,7 @@ void NewtonDamper::updateAnimation(unsigned long time, double elapsedTime)
     double d = funcD(lastTime,lastPosition,lastVelocity,targetTime,targetPosition);
 
     double nextPositon = a*(timems*timems*timems) + b*(timems*timems) + c*(timems) + d;
-    double nextVelocity = (1.0/3.0) * a *(timems*timesms) + 0.5*b*(timems) + c;
+    double nextVelocity = (1.0/3.0) * a *(timems*timems) + 0.5*b*(timems) + c;
 
 
     this->lastPosition = nextPositon;
@@ -68,6 +68,10 @@ void NewtonDamper::setSpeed(float value)
 
 double NewtonDamper::calcTargetTime(double startTime, double startPosition, double targetPos, double speed)
 {
+    if (targetPos < startPosition ) {
+        speed = -speed;
+    }
+
     double st = startTime;
     double sp = startPosition;
     double tp = targetPos;
