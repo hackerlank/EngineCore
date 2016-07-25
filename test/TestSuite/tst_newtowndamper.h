@@ -15,6 +15,9 @@ class NewtonDamperTest :  public NewtonDamper{
      Q_OBJECT
 
 
+    float * testValue;
+    NewtonDamper * testNewtonDamper;
+
 public:
     NewtonDamperTest() :  NewtonDamper(new float,5) {
 
@@ -27,17 +30,120 @@ public:
 
 private Q_SLOTS:
 
-    void initTestCase() {
+    void init() {
 
+    testValue = new float;
+    testNewtonDamper = new NewtonDamper(testValue);
 
+    }
+
+    void cleanup() {
+
+        delete testNewtonDamper;
+        testNewtonDamper = NULL;
+        delete testValue;
+        testValue = NULL;
 
     }
 
-    void cleanupTestCase() {
+    void testUpdateNoTarget() {
+        testNewtonDamper->start();
 
+        testNewtonDamper->update(10,0.10);
 
+        QVERIFY2(qFuzzyCompare(*testValue,0.0f), "Zero error");
+
+        testNewtonDamper->update(12,2.0);
+
+        QVERIFY2(qFuzzyCompare(*testValue,0.0f), "Zero error");
 
     }
+
+    void testUpdateSimple() {
+        const float target = 2.0f;
+        const float speed  = 2.0f;
+
+        testNewtonDamper->start();
+        testNewtonDamper->setTarget(target);
+        testNewtonDamper->setSpeed(speed);
+
+        testNewtonDamper->update(0,0);
+
+        testNewtonDamper->update(1000,2.0);
+
+        //qInfo() << "Value: " << *testValue << " Speed: " << testNewtonDamper->getSpeed();
+
+        QVERIFY2(qFuzzyCompare(*testValue,2.0f), "Zero error");
+
+    }
+
+    void testUpdateMidChange() {
+        const float target = 4.0f;
+        const float speed  = 2.0f;
+
+        testNewtonDamper->start();
+        testNewtonDamper->setTarget(target);
+        testNewtonDamper->setSpeed(speed);
+
+
+        //qInfo() << "Value: " << *testValue << " Speed: " << testNewtonDamper->getCurrentSpeed();
+
+        for(int i = 0; i<= 1000; i+=10) {
+            testNewtonDamper->update(i,0);
+          //  qInfo() << "Value: " << *testValue << " Speed: " << testNewtonDamper->getCurrentSpeed();
+
+        }
+
+        QVERIFY2(qFuzzyCompare(*testValue,2.0f), "Value error");
+
+
+        testNewtonDamper->setTarget(1.5f);
+
+
+        //qInfo() << "Value: " << *testValue << " Speed: " << testNewtonDamper->getCurrentSpeed();
+
+        for(int i = 1000; i<= 1250; i+=10) {
+            testNewtonDamper->update(i,0);
+          //  qInfo() << "Value: " << *testValue << " Speed: " << testNewtonDamper->getCurrentSpeed();
+
+        }
+
+
+        QVERIFY2(qFuzzyCompare(*testValue,1.5f), "Value error");
+
+    }
+
+    void testUpdateOverTime() {
+        const float target = 4.0f;
+        const float speed  = 2.0f;
+
+        testNewtonDamper->start();
+        testNewtonDamper->setTarget(target);
+        testNewtonDamper->setSpeed(speed);
+
+
+        //qInfo() << "Value: " << *testValue << " Speed: " << testNewtonDamper->getCurrentSpeed();
+
+        for(int i = 0; i<= 1000; i+=10) {
+            testNewtonDamper->update(i,0);
+          //  qInfo() << "Value: " << *testValue << " Speed: " << testNewtonDamper->getCurrentSpeed();
+
+        }
+
+        QVERIFY2(qFuzzyCompare(*testValue,2.0f), "Value error");
+
+
+        for(int i = 1000; i<= 3000; i+=10) {
+            testNewtonDamper->update(i,0);
+          //  qInfo() << "Value: " << *testValue << " Speed: " << testNewtonDamper->getCurrentSpeed();
+
+        }
+
+
+        QVERIFY2(qFuzzyCompare(*testValue,4.0f), "Value error");
+
+    }
+
 
 
     /*!

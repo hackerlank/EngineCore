@@ -23,6 +23,8 @@ private:
 
     float midSpeed;
 
+    double a ,b ,c ,d;
+
 
 protected:
 
@@ -39,6 +41,10 @@ public:
      */
     virtual void setTarget(float newValue);
     float getSpeed() const;
+
+    float getCurrentSpeed() const{ return lastVelocity;}
+
+
     void setSpeed(float value);
 
 protected:

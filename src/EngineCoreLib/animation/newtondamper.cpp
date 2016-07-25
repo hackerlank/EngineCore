@@ -10,8 +10,15 @@ NewtonDamper::NewtonDamper(float * controlValue, float midSpeed) : Animator(cont
 {
     this->lastPosition = 0;
     this->lastTime = 0;
+    this->lastVelocity = 0;
     this->needTargetUpdate = true;
     this->midSpeed = midSpeed;
+    this->targetPosition = 0.0f;
+
+    a = 0;
+    b = 0;
+    c = 0;
+    d = 0;
 }
 
 void NewtonDamper::setTarget(float newValue)
@@ -23,32 +30,52 @@ void NewtonDamper::setTarget(float newValue)
 
 //sieht schon gut aus
 // geht auch eine interpolation bei der die Geschwindichkeit erhalten bleibt beim setzen einens neuen ziels !
-void NewtonDamper::updateAnimation(unsigned long time, double elapsedTime)
+void NewtonDamper::updateAnimation(unsigned long time, double )
 {
     float currentPosition = *value; //read
 
     double timems = static_cast<double>(time) / 1000.0;
-    double elapsed = static_cast<double>(time - lastTime) / 1000.0; //elapsed in millisec
+   // double elapsed = static_cast<double>(time - lastTime) / 1000.0; //elapsed in millisec
 
     if (needTargetUpdate) {
         targetTime = calcTargetTime(timems,currentPosition,targetPosition,midSpeed);
+
+         a = funcA(lastTime,lastPosition,lastVelocity,targetTime,targetPosition);
+
+         b = funcB(lastTime,lastPosition,lastVelocity,targetTime,targetPosition);
+
+         c = funcC(lastTime,lastPosition,lastVelocity,targetTime,targetPosition);
+
+         d = funcD(lastTime,lastPosition,lastVelocity,targetTime,targetPosition);
+
+        needTargetUpdate = false;
     }
 
-    double a = funcA(lastTime,lastPosition,lastVelocity,targetTime,targetPosition);
 
-    double b = funcB(lastTime,lastPosition,lastVelocity,targetTime,targetPosition);
-
-    double c = funcC(lastTime,lastPosition,lastVelocity,targetTime,targetPosition);
-
-    double d = funcD(lastTime,lastPosition,lastVelocity,targetTime,targetPosition);
 
     double nextPositon = a*(timems*timems*timems) + b*(timems*timems) + c*(timems) + d;
-    double nextVelocity = (1.0/3.0) * a *(timems*timems) + 0.5*b*(timems) + c;
+    double nextVelocity = 3 * a *(timems*timems) + 2*b*(timems) + c;
 
+
+
+    if( timems < targetTime) {
 
     this->lastPosition = nextPositon;
     this->lastVelocity = nextVelocity;
-    this->lastTime = timems;
+
+    } else {
+
+        this->lastPosition = targetPosition;
+        this->lastVelocity = 0;
+
+        nextPositon = targetPosition;
+
+
+    }
+
+    this->lastTime = nextPositon;
+
+    *value = lastPosition;
 }
 
 float NewtonDamper::getSpeed() const
