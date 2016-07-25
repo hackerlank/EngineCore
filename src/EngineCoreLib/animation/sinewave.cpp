@@ -1,5 +1,5 @@
 #include "sinewave.h"
-
+#include "math.h"
 
 SineWave::SineWave(float *control,  float waveSpeed ,float amp) : Animator(control)
 {
@@ -9,7 +9,7 @@ SineWave::SineWave(float *control,  float waveSpeed ,float amp) : Animator(contr
 }
 
 
-void SineWave::updateAnimation(unsigned long time, double elapsedTime)
+void SineWave::updateAnimation(unsigned long time, double )
 {
     if (restated) {
         this->startTime = time;
