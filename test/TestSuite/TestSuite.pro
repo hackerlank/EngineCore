@@ -4,6 +4,7 @@ CONFIG += c++11
 
 TARGET = TestSuite
 CONFIG += console testcase
+CONFIG += staticlib
 
 TEMPLATE = app
 
