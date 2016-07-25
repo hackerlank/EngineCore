@@ -16,6 +16,7 @@ class Animator : public QObject
 protected:
 
     float * value;
+    bool ownValue;
 
     bool isRunning;
 
@@ -27,14 +28,30 @@ protected:
 
 public:
 
-    explicit Animator(float * controlValue) {
+    explicit Animator(float * controlValue = NULL) {
 
         isRunning = false;
+
+        if (controlValue == NULL) {
+        value = new float;
+        ownValue = true;
+        } else {
         value = controlValue;
+        ownValue = false;
+        }
+    }
+
+    ~Animator() {
+        if(ownValue) {
+            delete value;
+            value = NULL;
+        }
 
     }
 
     bool isActive(){return isRunning;}
+
+    float getValue() const {return *value;}
 
 public slots:
 
